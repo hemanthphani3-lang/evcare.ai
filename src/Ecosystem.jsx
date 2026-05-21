@@ -146,6 +146,29 @@ function Ecosystem() {
             <path d="M 60 75 L 60 80" />
           </g>
 
+          {/* Animated Data Pulses (Flowing from Cards TO Device) */}
+          <g className="pulse-group" stroke="#00e5ff" strokeWidth="0.3" fill="none">
+            {/* Top Cards */}
+            <path className="pulse-line pulse-1" d="M 37.5 28 L 37.5 31 Q 37.5 32 38.5 32 L 50 32 L 50 38" />
+            <path className="pulse-line pulse-2" d="M 50 28 L 50 38" />
+            <path className="pulse-line pulse-3" d="M 62.5 28 L 62.5 31 Q 62.5 32 61.5 32 L 50 32 L 50 38" />
+
+            {/* Right Cards */}
+            <path className="pulse-line pulse-4" d="M 74 34 L 69 34 Q 68 34 68 35 L 68 48 L 58 48" />
+            <path className="pulse-line pulse-5" d="M 74 48 L 58 48" />
+            <path className="pulse-line pulse-6" d="M 74 62 L 69 62 Q 68 62 68 61 L 68 48 L 58 48" />
+
+            {/* Scooter */}
+            <path className="pulse-line pulse-7" d="M 31 56 L 42 56" />
+
+            {/* Bottom Cards */}
+            <path className="pulse-line pulse-8" d="M 20 80 L 20 76 Q 20 75 21 75 L 44 75" />
+            <path className="pulse-line pulse-9" d="M 40 80 L 40 75 L 44 75" />
+            <path className="pulse-line pulse-10" d="M 60 80 L 60 75 L 56 75" />
+            <path className="pulse-line pulse-11" d="M 80 80 L 80 76 Q 80 75 79 75 L 56 75" />
+            <path className="pulse-line pulse-12" d="M 50 72 L 50 62" />
+          </g>
+
           {/* End Nodes (Glowing Cyan Dots) */}
           <g fill="#00e5ff" filter="url(#glow)">
             {/* Top (Tree Topology) */}
@@ -180,6 +203,7 @@ function Ecosystem() {
 
         {/* ================= CENTRAL HUB ================= */}
         <div className="eco-hub">
+          <div className="hub-glow"></div>
           <img src="/src/assets/ecosystem/device.png" alt="InnoVibe Device" />
         </div>
 
@@ -288,60 +312,6 @@ function Ecosystem() {
           </div>
         </div>
 
-        {/* ================= SYSTEM STATUS FOOTER ================= */}
-        <div className="eco-status-footer">
-          <div className="status-left-group">
-            <div className="status-label">SYSTEM STATUS — <span className="live-text">LIVE</span></div>
-            <div className="status-line"></div>
-          </div>
-          
-          <div className="status-items">
-            <div className="status-item">
-              <Wifi size={16} />
-              <div>
-                <h5>VEHICLE CONNECTED</h5>
-                <span className="status-green">Online</span>
-              </div>
-            </div>
-            <div className="status-item">
-              <BrainCircuit size={16} />
-              <div>
-                <h5>AI DIAGNOSTICS</h5>
-                <span className="status-green">Active •</span>
-              </div>
-            </div>
-            <div className="status-item">
-              <Navigation size={16} />
-              <div>
-                <h5>GPS</h5>
-                <span className="status-green">Locked •</span>
-              </div>
-            </div>
-            <div className="status-item">
-              <RefreshCw size={16} />
-              <div>
-                <h5>DATA SYNC</h5>
-                <span className="status-green">Live •</span>
-              </div>
-            </div>
-            <div className="status-item">
-              <CloudUpload size={16} />
-              <div>
-                <h5>CLOUD</h5>
-                <span className="status-green">Connected •</span>
-              </div>
-            </div>
-            <div className="status-item">
-              <ShieldCheck size={16} />
-              <div>
-                <h5>SECURITY</h5>
-                <span className="status-green">Protected •</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="status-right-spacer"></div>
-        </div>
 
       </div>
     </section>

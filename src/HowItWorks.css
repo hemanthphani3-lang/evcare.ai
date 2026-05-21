@@ -1,5 +1,4 @@
 .how-it-works-section {
-  height: 100vh;
   width: 100%;
   background-color: #000000;
   display: flex;
@@ -7,8 +6,8 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
-  z-index: 20; /* Higher than dashboard showcase (10) */
-  pointer-events: none; /* Let clicks pass through to dashboard behind it once revealed */
+  z-index: 20;
+  pointer-events: none;
 }
 
 .hiw-content {
@@ -20,37 +19,101 @@
   perspective: 1000px;
 }
 
-.hiw-title {
-  font-size: 6rem;
-  font-weight: 800;
-  text-align: center;
-  margin: 0;
-  letter-spacing: -2px;
-  transform-origin: center center;
-  white-space: nowrap;
-  will-change: transform, opacity;
-  color: #ffffff;
-  display: inline-block;
+.hiw-wipe-container {
+  width: 0; /* Starts hidden */
   overflow: hidden;
-  width: 0;
-  white-space: nowrap;
-  border-right: 4px solid #10b981; /* The typing cursor */
-  animation: blink 0.8s step-end infinite;
+  border-right: 4px solid #10b981; /* Scanning laser effect */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  will-change: width, transform, opacity;
+  transform-origin: center center;
 }
 
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: #10b981; }
+.hiw-slide-wrapper {
+  width: 100vw;
+  position: relative;
+  flex-shrink: 0;
+  /* Let the image define the height naturally */
 }
 
-@media (max-width: 992px) {
-  .hiw-title {
-    font-size: 4rem;
-  }
+.hiw-slide-bg {
+  width: 100%;
+  height: auto; /* Natural image height - no zoom/crop */
+  display: block;
+  z-index: 1;
+  position: relative;
 }
 
-@media (max-width: 768px) {
-  .hiw-title {
-    font-size: 3rem;
-  }
+.hiw-ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align to top */
+  padding: 12% 8%; /* Push down from top */
+}
+
+.hiw-text-block {
+  max-width: 600px;
+  color: white;
+}
+
+.hiw-eyebrow {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+.hiw-main-heading {
+  font-family: 'Chillax', sans-serif;
+  font-size: 4.5rem; /* Larger */
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.hiw-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 4rem; /* More space before icons */
+}
+
+.hiw-icons-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hiw-icon-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hiw-glow-icon {
+  color: #3b82f6;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+}
+
+.hiw-icon-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hiw-icon-col span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
 }

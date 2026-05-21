@@ -4,31 +4,38 @@ import img1 from './assets/11.png';
 import img2 from './assets/22.png';
 import img3 from './assets/33.png';
 import img4 from './assets/44.png';
+import img5 from './assets/55.png';
 
 const dashboardData = [
   {
     id: 1,
     img: img1,
-    title: "Book Service",
-    desc: "Schedule your EV service in seconds with a simple and seamless booking experience."
+    title: "Fleet Operations & Management",
+    desc: "Real-time tracking, fleet analytics, diagnostics, and performance insights — all in one place."
   },
   {
     id: 2,
     img: img2,
-    title: "We Come to You",
-    desc: "Professional EV technicians arrive at your doorstep with everything needed to get you back on the road."
+    title: "Theft Protection & Recovery",
+    desc: "AI-powered theft detection, geo-fencing, instant alerts, and real-time location tracking."
   },
   {
     id: 3,
     img: img3,
-    title: "Diagnose & Repair",
-    desc: "Advanced diagnostics and expert repairs designed specifically for modern electric vehicles."
+    title: "Predictive Maintenance & Diagnostics",
+    desc: "AI diagnostics detect issues early, predict failures, and help extend vehicle life."
   },
   {
     id: 4,
     img: img4,
-    title: "Ride Stress-Free",
-    desc: "Enjoy a smooth and worry-free ride with reliable support from EVcare at every step."
+    title: "Smart Urban Delivery Fleets",
+    desc: "Optimize delivery routes, monitor rider behavior, and improve efficiency across the network."
+  },
+  {
+    id: 5,
+    img: img5, // Updated to use the newly provided 55.png
+    title: "Remote Monitoring Across Devices",
+    desc: "Stay connected to your vehicle anytime, anywhere with mobile apps and smartwatch alerts."
   }
 ];
 

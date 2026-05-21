@@ -215,7 +215,28 @@
   width: 100%;
   height: auto;
   object-fit: contain;
+  position: relative;
+  z-index: 2;
   filter: drop-shadow(0 1.5vw 2.5vw rgba(0,0,0,0.8));
+}
+
+.hub-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%; /* Slightly larger than the device */
+  height: 110%;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.5) 0%, rgba(0, 229, 255, 0) 60%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  animation: hubEnergy 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes hubEnergy {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
 }
 
 /* ================= TOP INTELLIGENCE LAYER ================= */
@@ -532,3 +553,41 @@
 .eco-scooter-card:hover {
   transform: translateY(calc(-50% - 0.2vw));
 }
+
+/* ================= SVG PULSES (Electrical Current Flow) ================= */
+.pulse-group {
+  filter: url(#glow);
+}
+
+.pulse-line {
+  stroke: #00e5ff;
+  stroke-width: 0.25;
+  fill: none;
+  /* Longer dashes, larger gaps = fewer pulses on screen */
+  stroke-dasharray: 6 18; 
+  /* Normal speed (offset 24 -> 0) */
+  animation: dataPulse 2s linear infinite;
+  opacity: 0.85;
+}
+
+@keyframes dataPulse {
+  0% { stroke-dashoffset: 24; } /* 6 + 18 = 24 */
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Stagger speeds slightly so some lines have slightly different electrical frequencies */
+.pulse-1 { animation-duration: 2.2s; }
+.pulse-2 { animation-duration: 2.8s; }
+.pulse-3 { animation-duration: 2.4s; }
+
+.pulse-4 { animation-duration: 2.5s; }
+.pulse-5 { animation-duration: 2.0s; }
+.pulse-6 { animation-duration: 2.7s; }
+
+.pulse-7 { animation-duration: 2.3s; }
+
+.pulse-8 { animation-duration: 2.6s; }
+.pulse-9 { animation-duration: 2.1s; }
+.pulse-10 { animation-duration: 2.4s; }
+.pulse-11 { animation-duration: 2.9s; }
+.pulse-12 { animation-duration: 1.8s; }

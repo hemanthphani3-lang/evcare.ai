@@ -25,7 +25,6 @@ import TermsAndConditions from './legal/TermsAndConditions';
 import RefundPolicy from './legal/RefundPolicy';
 import AIFeatures from './AIFeatures';
 import Ecosystem from './Ecosystem';
-import IntelligenceUnit from './IntelligenceUnit';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,9 +115,8 @@ function App() {
               
               <AIFeatures />
               <Ecosystem />
-              <IntelligenceUnit />
-      
               <div id="features"><HowItWorks /></div>
+      
               <div id="diagnostics"><DashboardShowcase /></div>
               <div id="savings"><SavingsCalculator /></div>
               <div id="services"><Services /></div>
