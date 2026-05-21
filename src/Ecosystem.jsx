@@ -88,7 +88,7 @@ function Ecosystem() {
           </div>
         </div>
         {/* ================= BACKGROUND CONNECTING LINES ================= */}
-        <svg className="eco-lines-svg" viewBox="0 0 1600 900" preserveAspectRatio="none">
+        <svg className="eco-lines-svg">
           <defs>
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
               <feGaussianBlur stdDeviation="3" result="blur" />
@@ -96,60 +96,71 @@ function Ecosystem() {
             </filter>
           </defs>
 
-          {/* Connecting Lines */}
+          {/* Connecting Lines (Circuit Style, Fully Responsive) */}
           <g stroke="#4B8BBE" strokeWidth="1.5" fill="none" opacity="0.6">
             {/* Top Cards */}
-            <path d="M 800 468 C 800 300, 624 300, 624 144" />
-            <path d="M 800 468 C 800 300, 800 300, 800 144" />
-            <path d="M 800 468 C 800 300, 976 300, 976 144" />
+            <line x1="45%" y1="42%" x2="45%" y2="30%" />
+            <line x1="45%" y1="30%" x2="39%" y2="30%" />
+            <line x1="39%" y1="30%" x2="39%" y2="20%" />
+
+            <line x1="50%" y1="42%" x2="50%" y2="20%" />
+
+            <line x1="55%" y1="42%" x2="55%" y2="30%" />
+            <line x1="55%" y1="30%" x2="61%" y2="30%" />
+            <line x1="61%" y1="30%" x2="61%" y2="20%" />
 
             {/* Right Cards */}
-            <path d="M 800 468 C 950 468, 1000 297, 1184 297" />
-            <path d="M 800 468 C 950 468, 1000 450, 1184 450" />
-            <path d="M 800 468 C 950 468, 1000 603, 1184 603" />
+            <line x1="63%" y1="44%" x2="68%" y2="44%" />
+            <line x1="68%" y1="44%" x2="68%" y2="36%" />
+            <line x1="68%" y1="36%" x2="74%" y2="36%" />
+
+            <line x1="63%" y1="50%" x2="74%" y2="50%" />
+
+            <line x1="63%" y1="56%" x2="68%" y2="56%" />
+            <line x1="68%" y1="56%" x2="68%" y2="64%" />
+            <line x1="68%" y1="64%" x2="74%" y2="64%" />
 
             {/* Scooter Card */}
-            <path d="M 800 468 C 650 468, 600 450, 560 450" />
-
-            {/* Far Left Features */}
-            <path d="M 800 468 C 650 468, 500 360, 352 360" />
-            <path d="M 800 468 C 650 468, 500 432, 352 432" />
-            <path d="M 800 468 C 650 468, 500 504, 352 504" />
-            <path d="M 800 468 C 650 468, 500 576, 352 576" />
+            <line x1="37%" y1="50%" x2="33%" y2="50%" />
 
             {/* Bottom Cards */}
-            <path d="M 800 468 C 800 600, 352 600, 352 702" />
-            <path d="M 800 468 C 800 600, 640 600, 640 702" />
-            <path d="M 800 468 C 800 600, 960 600, 960 702" />
-            <path d="M 800 468 C 800 600, 1248 600, 1248 702" />
+            <line x1="43%" y1="62%" x2="43%" y2="68%" />
+            <line x1="43%" y1="68%" x2="19%" y2="68%" />
+            <line x1="19%" y1="68%" x2="19%" y2="75%" />
+
+            <line x1="48%" y1="62%" x2="48%" y2="68%" />
+            <line x1="48%" y1="68%" x2="39%" y2="68%" />
+            <line x1="39%" y1="68%" x2="39%" y2="75%" />
+
+            <line x1="52%" y1="62%" x2="52%" y2="68%" />
+            <line x1="52%" y1="68%" x2="58%" y2="68%" />
+            <line x1="58%" y1="68%" x2="58%" y2="75%" />
+
+            <line x1="57%" y1="62%" x2="57%" y2="68%" />
+            <line x1="57%" y1="68%" x2="77%" y2="68%" />
+            <line x1="77%" y1="68%" x2="77%" y2="75%" />
           </g>
 
           {/* End Nodes (Glowing Dots) */}
           <g fill="#4ade80" filter="url(#glow)">
             {/* Top */}
-            <circle cx="624" cy="144" r="3" />
-            <circle cx="800" cy="144" r="3" />
-            <circle cx="976" cy="144" r="3" />
+            <circle cx="39%" cy="20%" r="3" />
+            <circle cx="50%" cy="20%" r="3" />
+            <circle cx="61%" cy="20%" r="3" />
 
             {/* Right */}
-            <circle cx="1184" cy="297" r="3" />
-            <circle cx="1184" cy="450" r="3" />
-            <circle cx="1184" cy="603" r="3" />
+            <circle cx="74%" cy="36%" r="3" />
+            <circle cx="74%" cy="50%" r="3" />
+            <circle cx="74%" cy="64%" r="3" />
 
             {/* Scooter */}
-            <circle cx="560" cy="450" r="3" />
-
-            {/* Far Left */}
-            <circle cx="352" cy="360" r="3" />
-            <circle cx="352" cy="432" r="3" />
-            <circle cx="352" cy="504" r="3" />
-            <circle cx="352" cy="576" r="3" />
+            <circle cx="33%" cy="50%" r="3" />
 
             {/* Bottom */}
-            <circle cx="352" cy="702" r="3" />
-            <circle cx="640" cy="702" r="3" />
-            <circle cx="960" cy="702" r="3" />
-            <circle cx="1248" cy="702" r="3" />
+            <circle cx="19%" cy="75%" r="3" />
+            <circle cx="39%" cy="75%" r="3" />
+            <circle cx="58%" cy="75%" r="3" />
+            <circle cx="77%" cy="75%" r="3" />
           </g>
         </svg>
 

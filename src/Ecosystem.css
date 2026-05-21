@@ -146,13 +146,13 @@
 .eco-scooter-card {
   position: absolute;
   top: 50%; 
-  left: 21%;
+  left: 20%;
   transform: translateY(-50%);
   background: rgba(10, 15, 30, 0.6);
   border: 1px solid rgba(75, 139, 190, 0.3);
   border-radius: 0.8vw;
   padding: 1vw;
-  width: 14%;
+  width: 13%;
   backdrop-filter: blur(10px);
 }
 
