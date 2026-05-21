@@ -1,0 +1,229 @@
+/* ─── Section wrapper ─────────────────────────────────────── */
+.ai-features-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Aspect-ratio wrapper for bg and labels ──────────────── */
+.ai-image-container {
+  position: relative;
+  width: 100vw;
+  height: 66.67vw; /* 100 / 1.5 aspect ratio (1024x682) */
+  flex-shrink: 0;
+  will-change: transform, opacity;
+  z-index: 5;
+  overflow: hidden;
+  margin-top: -15vh; /* Shift higher to align the symbols with the rock structure */
+}
+
+@media (max-aspect-ratio: 1024/682) {
+  .ai-image-container {
+    width: 150vh; /* 100 * 1.5 */
+    height: 100vh;
+  }
+}
+
+.ai-features-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+/* ─── Smoke / volumetric haze ─────────────────────────────── */
+.smoke-layer {
+  position: absolute;
+  width: 160vw; height: 80vh;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+}
+.smoke-1 {
+  bottom: -10vh; left: -20vw;
+  background: radial-gradient(ellipse at center, rgba(20,30,45,0.18) 0%, transparent 70%);
+  animation: smokedrift 22s infinite alternate ease-in-out;
+}
+.smoke-2 {
+  bottom: 5vh; right: -25vw;
+  background: radial-gradient(ellipse at center, rgba(15,25,40,0.12) 0%, transparent 65%);
+  animation: smokedrift 30s infinite alternate-reverse ease-in-out;
+}
+@keyframes smokedrift {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(8vw,-4vh) scale(1.12); }
+}
+
+/* ─── TOP-LEFT: Heading block ─────────────────────────────── */
+.ai-heading-block {
+  position: absolute;
+  top: 48px;
+  left: 56px;
+  max-width: 400px;
+  z-index: 20;
+}
+
+.ai-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.ai-main-heading {
+  font-size: clamp(26px, 3.4vw, 48px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.ai-heading-rule {
+  width: 48px;
+  height: 2px;
+  background: rgba(255,255,255,0.3);
+  margin-bottom: 16px;
+}
+
+.ai-sub-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  margin: 0;
+}
+
+/* ─── Icon text labels & Hover interaction boxes ─── */
+.ai-icon-labels {
+  position: absolute;
+  top: 55%; /* Starts closer to the top of the symbols */
+  left: 0;
+  width: 100%;
+  height: 35%; /* Reduced height to tightly fit the symbols and text */
+  z-index: 20;
+  pointer-events: auto; /* Enable hover */
+}
+
+.ai-icon-label-col {
+  position: absolute;
+  top: 0;
+  height: 100%; /* Fill the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 22%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Fluid, fantasy transition */
+}
+
+.ai-icon-label-col:hover {
+  background: radial-gradient(circle at center, rgba(120, 190, 255, 0.08) 0%, transparent 75%);
+  border: 1px solid rgba(120, 190, 255, 0.25);
+  transform: translateX(-50%) translateY(-12px) scale(1.06);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 35px rgba(120, 190, 255, 0.15);
+  backdrop-filter: blur(2px);
+}
+
+.ai-icon-text-content {
+  position: absolute;
+  top: 75.7%; /* Recalculated to keep the text exactly at 81.5% of the total image height */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ai-icon-label-col:nth-child(1) { left: 13.18%; }
+.ai-icon-label-col:nth-child(2) { left: 37.11%; }
+.ai-icon-label-col:nth-child(3) { left: 60.25%; }
+.ai-icon-label-col:nth-child(4) { left: 83.11%; }
+
+.ai-icon-label-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  font-family: inherit;
+}
+
+.ai-icon-label-desc {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  max-width: 200px;
+}
+
+/* ─── BOTTOM: Footer bar ──────────────────────────────────── */
+.ai-footer-bar {
+  position: absolute;
+  bottom: 0; /* Restored to 0 so it is fully visible and not clipped */
+  left: 56px;
+  right: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px 24px;
+  background: rgba(10,10,10,0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+}
+
+.ai-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ai-footer-logo {
+  font-size: 18px;
+  font-weight: 900;
+  color: #ffffff;
+  font-family: serif;
+}
+
+.ai-footer-tagline {
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+
+.ai-footer-divider {
+  color: rgba(255,255,255,0.2);
+}
+
+.ai-footer-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+.ai-footer-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5a9fff;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+.ai-footer-cta:hover { gap: 12px; }

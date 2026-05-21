@@ -1,0 +1,297 @@
+.enquiry-section-modern {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 60% 50%, rgba(16, 185, 129, 0.05) 0%, rgba(0, 0, 0, 1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+/* AMBIENT GLOW LAYER */
+.enquiry-bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.enquiry-scooter-img {
+  position: absolute;
+  right: 5%; 
+  top: 45%; 
+  transform: translateY(-50%);
+  width: 42%; 
+  height: auto;
+  object-fit: contain;
+  opacity: 0.35; 
+  filter: contrast(1.1); 
+  transition: all 1s ease;
+  z-index: 2;
+}
+
+/* Subtle Shadow Under Scooter */
+.enquiry-scooter-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.enquiry-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 75% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.enquiry-content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 80px;
+}
+
+.enquiry-grid-modern {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+/* LEFT: COMPACT SQUARE CONTACT CARD */
+.enquiry-form-card {
+  background: rgba(24, 24, 27, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 2.2rem; /* Optimized padding */
+  width: 100%;
+  max-width: 480px; /* Wider to allow for 2-column rows */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 40px 100px rgba(0, 0, 0, 0.5);
+}
+
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Tightened */
+}
+
+.form-grid-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.modern-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.modern-form-group label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+}
+
+.modern-form-group input,
+.modern-form-group select,
+.modern-form-group textarea {
+  background: rgba(18, 18, 18, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.modern-form-group textarea {
+  height: 60px; /* Even smaller for square feel */
+  resize: none;
+}
+
+.modern-form-group input:focus,
+.modern-form-group select:focus,
+.modern-form-group textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  background: #18181b;
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.15);
+}
+
+.highlight-row {
+  background: rgba(16, 185, 129, 0.05);
+  padding: 0.8rem;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  margin: 0.2rem 0;
+}
+
+.accent-label {
+  color: #10b981 !important;
+  opacity: 1 !important;
+}
+
+.modern-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px !important;
+}
+
+.enquiry-submit-btn {
+  margin-top: 1.5rem;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.enquiry-submit-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enquiry-submit-btn:hover {
+  background: #10b981;
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.25);
+}
+
+.enquiry-submit-btn:hover::after {
+  opacity: 1;
+}
+
+.enquiry-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* RIGHT: WORLD-CLASS TYPOGRAPHY */
+.enquiry-text-modern {
+  text-align: left;
+  transform: translateY(-20px); /* Moved slightly upward */
+}
+
+.enquiry-title-modern {
+  font-family: 'Chillax', sans-serif;
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.enquiry-title-modern span.line-break {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.green-highlight {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.enquiry-desc-modern {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #a1a1aa;
+  font-weight: 500;
+  max-width: 480px;
+}
+
+@media (max-width: 1024px) {
+  .enquiry-scooter-img {
+    width: 40%;
+    right: 5%;
+  }
+  .enquiry-title-modern {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .enquiry-section-modern {
+    padding: 80px 0;
+  }
+  .enquiry-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .enquiry-text-modern {
+    text-align: center;
+    order: 1;
+    transform: none;
+  }
+  .enquiry-form-card {
+    order: 2;
+    margin: 0 auto;
+    max-width: 100%;
+    transform: none;
+  }
+  .enquiry-scooter-img {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    right: 0;
+    top: 0;
+    transform: none;
+    opacity: 0.25;
+    order: 3;
+    filter: blur(1px);
+  }
+  .enquiry-desc-modern {
+    margin: 0 auto;
+  }
+}

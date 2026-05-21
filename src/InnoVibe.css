@@ -1,0 +1,608 @@
+.innovibe-section {
+  background: #000000;
+  width: 100%;
+  padding: 5rem 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.innovibe-slide-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 4rem; /* Generous side paddings for spacious look */
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* WIDESCREEN DYNAMIC WRAPPER - Aspect Ratio locked to premium wide 1400x800 coordinate scale */
+.innovibe-slide-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  aspect-ratio: 1400 / 800;
+  display: block;
+  margin: 0 auto;
+  container-type: inline-size;
+  container-name: slide;
+}
+
+/* Centered & Unzoomed background pedestal graphic */
+.innovibe-slide-image {
+  position: absolute;
+  left: 50%;
+  top: 29.5%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  z-index: 1;
+}
+
+/* SVG CONNECTOR LINES OVERLAY */
+.innovibe-svg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+  transform: translateY(-4%); /* Shifting up by 4% to match the top: 46% shifted image */
+}
+
+/* Pointer Line base (inactive/guide) */
+.pointer-line-bg {
+  stroke: rgba(255, 255, 255, 0.02);
+  stroke-width: 1;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+/* Glowing active path */
+.pointer-line-fg {
+  stroke: url(#line-glow);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  opacity: 0;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Circle dots */
+.pointer-dot {
+  fill: rgba(255, 255, 255, 0.15);
+  stroke: rgba(0, 0, 0, 0.8);
+  stroke-width: 1.5;
+  transition: all 0.3s ease;
+}
+
+.dot-icon {
+  fill: rgba(255, 255, 255, 0.3);
+}
+
+.dot-device {
+  fill: rgba(56, 189, 248, 0.3);
+}
+
+/* ACTIVE HOVER STATES ON CONNECTORS */
+.pointer-group.active .pointer-line-bg {
+  stroke: rgba(56, 189, 248, 0.1);
+}
+
+.pointer-group.active .pointer-line-fg {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  filter: drop-shadow(0 0 3px rgba(56, 189, 248, 0.6));
+}
+
+.pointer-group.active .dot-icon {
+  fill: #38bdf8;
+  r: 4.5px;
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 0.8));
+}
+
+.pointer-group.active .dot-device {
+  fill: #10b981;
+  r: 4.5px;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.9));
+}
+
+/* INTERACTIVE CONTENT OVERLAY */
+.innovibe-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none; /* Let clicks pass through except on active items */
+  transform: translateY(-4%); /* Shifting up by 4% to match the top: 46% shifted image */
+}
+
+/* LEFT COLUMN - Pushed far left, leaving a massive horizontal center space */
+.innovibe-left-col {
+  position: absolute;
+  top: 8%;
+  left: 0%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+}
+
+.innovibe-subtitle {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.15cqw;
+  font-weight: 700;
+  color: rgba(56, 189, 248, 0.75);
+  letter-spacing: 0.15em;
+  margin-bottom: 1.2cqw;
+  text-transform: uppercase;
+}
+
+.innovibe-title {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 2.8cqw;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5cqw;
+  letter-spacing: -0.01em;
+}
+
+.text-glow-cyan {
+  color: #38bdf8;
+  background: linear-gradient(135deg, #38bdf8 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.25));
+}
+
+.innovibe-desc {
+  font-size: 1.25cqw;
+  line-height: 1.45;
+  color: #a1a1aa;
+  margin-bottom: 2.2cqw;
+}
+
+.innovibe-reliability-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2cqw;
+  padding: 1cqw 1.2cqw;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 20, 23, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 0.8cqw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease;
+}
+
+.innovibe-reliability-card:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.reliability-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5cqw;
+  height: 3.5cqw;
+  border-radius: 0.6cqw;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.reliability-icon {
+  width: 1.8cqw;
+  height: 1.8cqw;
+}
+
+.reliability-text h3 {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.15cqw;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.2cqw;
+  letter-spacing: 0.03em;
+}
+
+.reliability-text p {
+  font-size: 1.05cqw;
+  color: #a1a1aa;
+  line-height: 1.3;
+}
+
+/* RIGHT COLUMN - Pushed far right, aligning perfectly with SVG line endings */
+.innovibe-right-col {
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  right: 0%;
+  width: 25%;
+  pointer-events: auto;
+}
+
+.innovibe-feature-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1cqw;
+  padding: 0.6cqw 0.8cqw;
+  border-radius: 0.8cqw;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Widescreen vertical top coordinates, matching Y-centers: 80, 176, 272, 368, 464 */
+.innovibe-feature-item.item-1 { top: 6.5%; }
+.innovibe-feature-item.item-2 { top: 18.5%; }
+.innovibe-feature-item.item-3 { top: 30.5%; }
+.innovibe-feature-item.item-4 { top: 42.5%; }
+.innovibe-feature-item.item-5 { top: 54.5%; }
+
+.innovibe-feature-item:hover {
+  background: rgba(20, 20, 23, 0.5);
+  border-color: rgba(255, 255, 255, 0.06);
+  transform: translateX(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8cqw;
+  height: 2.8cqw;
+  border-radius: 0.6cqw;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #a1a1aa;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 0.1cqw;
+}
+
+.innovibe-feature-item:hover .feature-icon-box {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.15);
+}
+
+.feature-icon {
+  width: 1.4cqw;
+  height: 1.4cqw;
+  margin: 0;
+}
+
+.feature-text h3 {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.15cqw;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.15cqw;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.innovibe-feature-item:hover .feature-text h3 {
+  color: #38bdf8;
+}
+
+.feature-text p {
+  font-size: 0.95cqw;
+  color: #a1a1aa;
+  line-height: 1.35;
+}
+
+/* BOTTOM SPECS PANEL */
+.innovibe-bottom-specs {
+  position: absolute;
+  bottom: 18%;
+  left: 0%;
+  right: 0%;
+  height: 11%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2cqw;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 12, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 0.8cqw;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  pointer-events: auto;
+  z-index: 15;
+}
+
+.spec-col {
+  display: flex;
+  align-items: center;
+  gap: 1cqw;
+  flex: 1;
+}
+
+.spec-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8cqw;
+  height: 2.8cqw;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(56, 189, 248, 0.7);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.spec-col:hover .spec-icon-box {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.2);
+  transform: rotate(15deg);
+}
+
+.spec-icon {
+  width: 1.4cqw;
+  height: 1.4cqw;
+  margin: 0;
+}
+
+.spec-text h3 {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 1.05cqw;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.1cqw;
+  letter-spacing: 0.03em;
+}
+
+.spec-text p {
+  font-size: 0.9cqw;
+  color: #a1a1aa;
+}
+
+.spec-divider {
+  width: 1px;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 1.5cqw;
+}
+
+/* DECORATIVE GLOW BACKGROUND OVERLAY */
+.innovibe-glow-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(56, 189, 248, 0.03) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* RESPONSIVE LAYOUT FOR MEDIUM AND MOBILE DEVICES */
+@media (max-width: 1024px) {
+  .innovibe-slide-container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .innovibe-section {
+    padding: 4rem 1rem;
+  }
+  
+  .innovibe-slide-container {
+    padding: 0;
+  }
+  
+  .innovibe-slide-wrapper {
+    aspect-ratio: auto;
+    height: auto;
+    max-width: 600px;
+    container-type: normal;
+  }
+
+  .innovibe-slide-image {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 2.5rem auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .innovibe-svg-overlay {
+    display: none; /* Hide connector schematic lines on mobile */
+  }
+
+  .innovibe-content-overlay {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    pointer-events: auto;
+    transform: none; /* Reset vertical shift on mobile viewports */
+  }
+
+  /* Left Column Stacking */
+  .innovibe-left-col {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .innovibe-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .innovibe-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .innovibe-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .innovibe-reliability-card {
+    padding: 1.2rem;
+    border-radius: 10px;
+    gap: 1rem;
+  }
+
+  .reliability-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+  }
+
+  .reliability-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .reliability-text h3 {
+    font-size: 1.05rem;
+  }
+
+  .reliability-text p {
+    font-size: 0.88rem;
+  }
+
+  /* Right Column Stacking - Reverts to regular flex stack for easy vertical flow on mobile */
+  .innovibe-right-col {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .innovibe-feature-item {
+    position: relative;
+    top: auto !important; /* Override absolute tops from desktop */
+    left: auto;
+    right: auto;
+    padding: 0.88rem 1rem;
+    border-radius: 10px;
+    background: rgba(18, 18, 20, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    gap: 1rem;
+  }
+
+  .innovibe-feature-item:hover {
+    transform: none;
+    background: rgba(22, 22, 24, 0.65);
+    border-color: rgba(56, 189, 248, 0.2);
+  }
+
+  .feature-icon-box {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+  }
+
+  .feature-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .feature-text h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .feature-text p {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  /* Bottom specs horizontal to grid */
+  .innovibe-bottom-specs {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .spec-col {
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .spec-icon-box {
+    width: 34px;
+    height: 34px;
+  }
+
+  .spec-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .spec-text h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .spec-text p {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .spec-divider {
+    display: none; /* Hide dividers in mobile grid */
+  }
+}
+
+@media (max-width: 480px) {
+  .innovibe-bottom-specs {
+    grid-template-columns: 1fr;
+  }
+  
+  .innovibe-title {
+    font-size: 1.75rem;
+  }
+}

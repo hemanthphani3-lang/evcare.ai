@@ -1,0 +1,440 @@
+/* Ecosystem.css */
+
+.ecosystem-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 56.25vw; /* Guarantees 16:9 aspect ratio space on short screens */
+  background-color: #030712;
+  color: white;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.eco-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url('./assets/ecosystem/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 1; 
+}
+
+.eco-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+/* ================= GLOBALS & UTILITIES ================= */
+.eco-card {
+  background: rgba(10, 15, 30, 0.5);
+  border: 1px solid rgba(75, 139, 190, 0.3);
+  border-radius: 0.8vw;
+  padding: 1vw;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.eco-card:hover {
+  border-color: rgba(75, 139, 190, 0.8);
+  box-shadow: 0 0 1.5vw rgba(75, 139, 190, 0.2);
+}
+
+.card-icon {
+  color: #4B8BBE;
+  margin-bottom: 0.6vw;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.layer-title {
+  font-size: 0.7vw;
+  letter-spacing: 0.15vw;
+  color: #4B8BBE;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.8vw;
+}
+
+/* ================= TOP LEFT TEXT ================= */
+.eco-header-text {
+  position: absolute;
+  top: 8%;
+  left: 4%;
+  width: 32%;
+}
+
+.eco-label {
+  font-size: 0.7vw;
+  letter-spacing: 0.15vw;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1vw;
+}
+
+.eco-title {
+  font-size: 2.8vw;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.2vw;
+}
+
+.eco-subtitle {
+  font-size: 1vw;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* ================= LEFT FEATURES ================= */
+.eco-left-features {
+  position: absolute;
+  top: 58%;
+  left: 4%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  width: 15%;
+}
+
+.eco-left-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+}
+
+.eco-icon {
+  color: #4B8BBE;
+  width: 1.5vw;
+  height: 1.5vw;
+}
+
+.eco-item-text h4 {
+  font-size: 0.9vw;
+  color: #4B8BBE;
+  margin-bottom: 0.2vw;
+}
+
+.eco-item-text p {
+  font-size: 0.7vw;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* ================= SCOOTER CARD ================= */
+.eco-scooter-card {
+  position: absolute;
+  top: 50%; 
+  left: 21%;
+  transform: translateY(-50%);
+  background: rgba(10, 15, 30, 0.6);
+  border: 1px solid rgba(75, 139, 190, 0.3);
+  border-radius: 0.8vw;
+  padding: 1vw;
+  width: 14%;
+  backdrop-filter: blur(10px);
+}
+
+.eco-scooter-img-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8vw;
+}
+
+.eco-scooter-img-wrap img {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+.eco-scooter-info h4 {
+  font-size: 0.9vw;
+  color: #4B8BBE;
+  margin-bottom: 0.2vw;
+}
+
+.sub-text {
+  font-size: 0.7vw;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.8vw;
+}
+
+.scooter-parts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4vw;
+}
+
+.scooter-parts li {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+  font-size: 0.7vw;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ================= CENTRAL HUB ================= */
+.eco-hub {
+  position: absolute;
+  top: 52%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 31%; /* Increased by 5% from 26% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.eco-hub img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 1.5vw 2.5vw rgba(0,0,0,0.8));
+}
+
+/* ================= TOP INTELLIGENCE LAYER ================= */
+.eco-top-layer {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eco-top-cards {
+  display: flex;
+  gap: 1vw;
+}
+
+.eco-top-cards .eco-card {
+  width: 10vw;
+  padding: 0.8vw;
+}
+
+.eco-top-cards h4 {
+  font-size: 0.75vw;
+  margin-bottom: 0.4vw;
+}
+
+.eco-top-cards p {
+  font-size: 0.6vw;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ================= RIGHT DEVICE CARDS ================= */
+.eco-right-cards {
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  width: 22%;
+}
+
+.eco-device-card {
+  background: rgba(10, 15, 30, 0.6);
+  border: 1px solid rgba(75, 139, 190, 0.3);
+  border-radius: 0.8vw;
+  padding: 0.8vw 1.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  backdrop-filter: blur(10px);
+}
+
+.device-card-content {
+  text-align: left;
+  flex: 1;
+}
+
+.device-card-content h4 {
+  font-size: 0.9vw;
+  color: #4B8BBE;
+  margin-bottom: 0.4vw;
+  letter-spacing: 0.1vw;
+}
+
+.device-card-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3vw;
+}
+
+.device-card-content li {
+  font-size: 0.7vw;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  padding-left: 0.8vw;
+}
+.device-card-content li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #4B8BBE;
+}
+
+.eco-device-card img {
+  width: 4.5vw;
+  height: auto;
+  object-fit: contain;
+}
+.laptop-card img { width: 8vw; }
+.watch-card img { width: 5vw; }
+
+/* ================= BOTTOM ACTION LAYER ================= */
+.eco-bottom-layer {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.eco-bottom-cards {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+  width: 100%;
+}
+
+.action-card {
+  flex-direction: row;
+  text-align: left;
+  width: 23%;
+  padding: 0.8vw;
+  gap: 0.8vw;
+}
+
+.action-card .card-icon {
+  margin: 0;
+  width: 1.2vw;
+  height: 1.2vw;
+}
+
+.card-text h4 {
+  font-size: 0.75vw;
+  margin-bottom: 0.2vw;
+}
+
+.card-text p {
+  font-size: 0.6vw;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ================= SYSTEM STATUS FOOTER ================= */
+.eco-status-footer {
+  position: absolute;
+  bottom: 1%; /* Lowered from 2% */
+  left: 4%;
+  right: 4%;
+  background: rgba(10, 15, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1vw;
+  padding: 1vw 2vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Flexbox controls positioning now */
+  backdrop-filter: blur(10px);
+}
+
+.status-left-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.status-label {
+  font-size: 0.7vw;
+  letter-spacing: 0.1vw;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  flex-shrink: 0;
+}
+
+.status-line {
+  flex-grow: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08); /* Faint connecting line */
+  margin: 0 1.5vw;
+}
+
+.live-text {
+  color: #4B8BBE;
+  font-weight: 700;
+}
+
+.status-items {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  padding: 0 1.2vw;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-item svg {
+  color: #4B8BBE;
+  width: 1vw;
+  height: 1vw;
+}
+
+.status-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.status-item h5 {
+  font-size: 0.55vw;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0.15vw;
+  text-transform: uppercase;
+}
+
+.status-green {
+  font-size: 0.55vw;
+  color: #4ade80; /* bright green */
+}
+
+.status-right-spacer {
+  flex: 1;
+}

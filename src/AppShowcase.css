@@ -1,0 +1,204 @@
+.app-showcase-section {
+  width: 100%;
+  background: #09090b;
+  padding: 15vh 10%;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.app-showcase-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.app-title {
+  position: absolute;
+  top: 10vh;
+  left: 10%;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.02em;
+  z-index: 5;
+}
+
+/* CAROUSEL WRAPPER */
+.carousel-wrapper {
+  flex: 1.2;
+  position: relative;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-img {
+  position: absolute;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  object-fit: contain;
+}
+
+.phone-middle {
+  width: 360px;
+  z-index: 5;
+  transform: translateX(0) scale(1);
+  opacity: 1;
+}
+
+.phone-left {
+  width: 300px;
+  z-index: 3;
+  transform: translateX(-220px) scale(0.85) rotate(-5deg);
+  opacity: 0.7;
+  filter: blur(2px) grayscale(20%);
+}
+
+.phone-right {
+  width: 300px;
+  z-index: 3;
+  transform: translateX(220px) scale(0.85) rotate(5deg);
+  opacity: 0.7;
+  filter: blur(2px) grayscale(20%);
+}
+
+/* Hover effects */
+.carousel-wrapper:hover .phone-middle {
+  transform: translateY(-20px) scale(1.02);
+}
+
+/* TEXT CONTENT */
+.app-text-content {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.app-title {
+  font-family: 'Chillax', sans-serif;
+  font-size: 3.8rem; /* Slightly larger for impact */
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.app-subtitle {
+  color: #ffffff;
+}
+
+.app-title .app-suffix {
+  color: #10b981;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-header-with-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6rem;
+}
+
+.app-availability {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* APP LOGO STYLING */
+.app-showcase-logo {
+  width: 240px;
+  height: auto;
+  margin-bottom: 2.5rem;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(255, 255, 255, 0.03)) invert(1);
+  transition: transform 0.4s ease;
+}
+
+.app-showcase-logo:hover {
+  transform: scale(1.05);
+}
+
+/* STORE BUTTONS */
+.store-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  background: #18181b;
+  color: #ffffff;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.8rem 1.8rem;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.store-btn:hover {
+  background: #27272a;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a1a1aa;
+}
+
+.btn-main {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 1200px) {
+  .app-showcase-container {
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 5rem;
+  }
+  .carousel-wrapper {
+    width: 100%;
+    height: 500px;
+  }
+  .phone-middle { width: 280px; }
+  .phone-left, .phone-right { width: 220px; }
+  .phone-left { transform: translateX(-160px) scale(0.8); }
+  .phone-right { transform: translateX(160px) scale(0.8); }
+}
+
+@media (max-width: 768px) {
+  .app-subtitle {
+    font-size: 2.2rem;
+  }
+  .store-buttons {
+    flex-direction: column;
+  }
+}
