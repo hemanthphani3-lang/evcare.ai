@@ -88,79 +88,93 @@ function Ecosystem() {
           </div>
         </div>
         {/* ================= BACKGROUND CONNECTING LINES ================= */}
-        <svg className="eco-lines-svg">
+        <svg className="eco-lines-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
           <defs>
             <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feGaussianBlur stdDeviation="0.3" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
 
-          {/* Connecting Lines (Circuit Style, Fully Responsive) */}
-          <g stroke="#4B8BBE" strokeWidth="1.5" fill="none" opacity="0.6">
-            {/* Top Cards */}
-            <line x1="45%" y1="42%" x2="45%" y2="30%" />
-            <line x1="45%" y1="30%" x2="39%" y2="30%" />
-            <line x1="39%" y1="30%" x2="39%" y2="20%" />
-
-            <line x1="50%" y1="42%" x2="50%" y2="20%" />
-
-            <line x1="55%" y1="42%" x2="55%" y2="30%" />
-            <line x1="55%" y1="30%" x2="61%" y2="30%" />
-            <line x1="61%" y1="30%" x2="61%" y2="20%" />
-
-            {/* Right Cards */}
-            <line x1="63%" y1="44%" x2="68%" y2="44%" />
-            <line x1="68%" y1="44%" x2="68%" y2="36%" />
-            <line x1="68%" y1="36%" x2="74%" y2="36%" />
-
-            <line x1="63%" y1="50%" x2="74%" y2="50%" />
-
-            <line x1="63%" y1="56%" x2="68%" y2="56%" />
-            <line x1="68%" y1="56%" x2="68%" y2="64%" />
-            <line x1="68%" y1="64%" x2="74%" y2="64%" />
-
-            {/* Scooter Card */}
-            <line x1="37%" y1="50%" x2="33%" y2="50%" />
-
-            {/* Bottom Cards */}
-            <line x1="43%" y1="62%" x2="43%" y2="68%" />
-            <line x1="43%" y1="68%" x2="19%" y2="68%" />
-            <line x1="19%" y1="68%" x2="19%" y2="75%" />
-
-            <line x1="48%" y1="62%" x2="48%" y2="68%" />
-            <line x1="48%" y1="68%" x2="39%" y2="68%" />
-            <line x1="39%" y1="68%" x2="39%" y2="75%" />
-
-            <line x1="52%" y1="62%" x2="52%" y2="68%" />
-            <line x1="52%" y1="68%" x2="58%" y2="68%" />
-            <line x1="58%" y1="68%" x2="58%" y2="75%" />
-
-            <line x1="57%" y1="62%" x2="57%" y2="68%" />
-            <line x1="57%" y1="68%" x2="77%" y2="68%" />
-            <line x1="77%" y1="68%" x2="77%" y2="75%" />
+          {/* Radar Grid (Image 2 style) */}
+          <g stroke="#4B8BBE" strokeWidth="0.05" fill="none" strokeDasharray="0.5 0.5" opacity="0.3">
+            <circle cx="50" cy="52" r="20" />
+            <circle cx="50" cy="52" r="30" />
+            <circle cx="50" cy="52" r="40" />
+            <circle cx="50" cy="52" r="50" />
           </g>
 
-          {/* End Nodes (Glowing Dots) */}
-          <g fill="#4ade80" filter="url(#glow)">
-            {/* Top */}
-            <circle cx="39%" cy="20%" r="3" />
-            <circle cx="50%" cy="20%" r="3" />
-            <circle cx="61%" cy="20%" r="3" />
+          {/* Sweeping Connecting Lines */}
+          <g stroke="#00e5ff" strokeWidth="0.15" fill="none" opacity="0.5">
+            {/* Top Cards (Tree Topology) */}
+            <path d="M 50 38 L 50 32" />
+            {/* Left branch */}
+            <path d="M 50 32 L 38.5 32 Q 37.5 32 37.5 31 L 37.5 28" />
+            {/* Center branch */}
+            <path d="M 50 32 L 50 28" />
+            {/* Right branch */}
+            <path d="M 50 32 L 61.5 32 Q 62.5 32 62.5 31 L 62.5 28" />
 
-            {/* Right */}
-            <circle cx="74%" cy="36%" r="3" />
-            <circle cx="74%" cy="50%" r="3" />
-            <circle cx="74%" cy="64%" r="3" />
+            {/* Right Cards (Tree Topology) */}
+            {/* Main trunk from device to junction */}
+            <path d="M 58 48 L 68 48" />
+            {/* Top branch */}
+            <path d="M 68 48 L 68 35 Q 68 34 69 34 L 74 34" />
+            {/* Middle branch */}
+            <path d="M 68 48 L 74 48" />
+            {/* Bottom branch */}
+            <path d="M 68 48 L 68 61 Q 68 62 69 62 L 74 62" />
+
+            {/* Scooter Card */}
+            <path d="M 42 56 L 31 56" />
+
+            {/* Bottom Cards (Circuit Style - Target Topology) */}
+            
+            {/* Center Device Drop */}
+            <path d="M 50 62 L 50 72" />
+
+            {/* Left Bus & Drops */}
+            {/* Main line from center gap, drops at outer edge with curved corner */}
+            <path d="M 44 75 L 21 75 Q 20 75 20 76 L 20 80" />
+            {/* Inner T-junction drop */}
+            <path d="M 40 75 L 40 80" />
+
+            {/* Right Bus & Drops */}
+            {/* Main line from center gap, drops at outer edge with curved corner */}
+            <path d="M 56 75 L 79 75 Q 80 75 80 76 L 80 80" />
+            {/* Inner T-junction drop */}
+            <path d="M 60 75 L 60 80" />
+          </g>
+
+          {/* End Nodes (Glowing Cyan Dots) */}
+          <g fill="#00e5ff" filter="url(#glow)">
+            {/* Top (Tree Topology) */}
+            {/* Top Junction */}
+            <circle cx="50" cy="32" r="0.4" />
+            {/* Top Card Terminators */}
+            <circle cx="37.5" cy="28" r="0.4" />
+            <circle cx="50" cy="28" r="0.4" />
+            <circle cx="62.5" cy="28" r="0.4" />
+
+            {/* Right (Tree Topology) */}
+            {/* Right Junction */}
+            <circle cx="68" cy="48" r="0.4" />
+            {/* Right Card Terminators */}
+            <circle cx="73" cy="34" r="0.4" />
+            <circle cx="73" cy="48" r="0.4" />
+            <circle cx="73" cy="62" r="0.4" />
 
             {/* Scooter */}
-            <circle cx="33%" cy="50%" r="3" />
+            <circle cx="31" cy="56" r="0.4" />
 
-            {/* Bottom */}
-            <circle cx="19%" cy="75%" r="3" />
-            <circle cx="39%" cy="75%" r="3" />
-            <circle cx="58%" cy="75%" r="3" />
-            <circle cx="77%" cy="75%" r="3" />
+            {/* Device Bottom Connectors */}
+            <circle cx="50" cy="62" r="0.4" />
+
+            {/* Bottom Card Terminators */}
+            <circle cx="20" cy="80" r="0.4" />
+            <circle cx="40" cy="80" r="0.4" />
+            <circle cx="60" cy="80" r="0.4" />
+            <circle cx="80" cy="80" r="0.4" />
           </g>
         </svg>
 
@@ -244,31 +258,31 @@ function Ecosystem() {
           <div className="layer-title">ACTION LAYER</div>
           <div className="eco-bottom-cards">
             <div className="eco-card action-card">
-              <Bell className="card-icon" />
+              <Bell className="card-icon" strokeWidth={1.2} />
               <div className="card-text">
                 <h4>REAL-TIME ALERTS</h4>
-                <p>Instant alerts for faults, theft, battery, and more.</p>
+                <p>Instant alerts for faults,<br/>theft, battery, and more.</p>
               </div>
             </div>
             <div className="eco-card action-card">
-              <ShieldCheck className="card-icon" />
+              <ShieldCheck className="card-icon" strokeWidth={1.2} />
               <div className="card-text">
                 <h4>SECURITY & SAFETY</h4>
-                <p>Geofencing, anti-theft, and anomaly detection.</p>
+                <p>Geofencing, anti-theft,<br/>and anomaly detection.</p>
               </div>
             </div>
             <div className="eco-card action-card">
-              <Wrench className="card-icon" />
+              <Wrench className="card-icon" strokeWidth={1.2} />
               <div className="card-text">
                 <h4>PREDICTIVE MAINTENANCE</h4>
-                <p>AI predicts issues before they happen.</p>
+                <p>AI predicts issues before<br/>they happen.</p>
               </div>
             </div>
             <div className="eco-card action-card">
-              <CloudUpload className="card-icon" />
+              <CloudUpload className="card-icon" strokeWidth={1.2} />
               <div className="card-text">
                 <h4>OTA UPDATES</h4>
-                <p>Seamless firmware updates over the air.</p>
+                <p>Seamless firmware<br/>updates over the air.</p>
               </div>
             </div>
           </div>
