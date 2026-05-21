@@ -87,6 +87,71 @@ function Ecosystem() {
              </ul>
           </div>
         </div>
+        {/* ================= BACKGROUND CONNECTING LINES ================= */}
+        <svg className="eco-lines-svg" viewBox="0 0 1600 900" preserveAspectRatio="none">
+          <defs>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Connecting Lines */}
+          <g stroke="#4B8BBE" strokeWidth="1.5" fill="none" opacity="0.6">
+            {/* Top Cards */}
+            <path d="M 800 468 C 800 300, 624 300, 624 144" />
+            <path d="M 800 468 C 800 300, 800 300, 800 144" />
+            <path d="M 800 468 C 800 300, 976 300, 976 144" />
+
+            {/* Right Cards */}
+            <path d="M 800 468 C 950 468, 1000 297, 1184 297" />
+            <path d="M 800 468 C 950 468, 1000 450, 1184 450" />
+            <path d="M 800 468 C 950 468, 1000 603, 1184 603" />
+
+            {/* Scooter Card */}
+            <path d="M 800 468 C 650 468, 600 450, 560 450" />
+
+            {/* Far Left Features */}
+            <path d="M 800 468 C 650 468, 500 360, 352 360" />
+            <path d="M 800 468 C 650 468, 500 432, 352 432" />
+            <path d="M 800 468 C 650 468, 500 504, 352 504" />
+            <path d="M 800 468 C 650 468, 500 576, 352 576" />
+
+            {/* Bottom Cards */}
+            <path d="M 800 468 C 800 600, 352 600, 352 702" />
+            <path d="M 800 468 C 800 600, 640 600, 640 702" />
+            <path d="M 800 468 C 800 600, 960 600, 960 702" />
+            <path d="M 800 468 C 800 600, 1248 600, 1248 702" />
+          </g>
+
+          {/* End Nodes (Glowing Dots) */}
+          <g fill="#4ade80" filter="url(#glow)">
+            {/* Top */}
+            <circle cx="624" cy="144" r="3" />
+            <circle cx="800" cy="144" r="3" />
+            <circle cx="976" cy="144" r="3" />
+
+            {/* Right */}
+            <circle cx="1184" cy="297" r="3" />
+            <circle cx="1184" cy="450" r="3" />
+            <circle cx="1184" cy="603" r="3" />
+
+            {/* Scooter */}
+            <circle cx="560" cy="450" r="3" />
+
+            {/* Far Left */}
+            <circle cx="352" cy="360" r="3" />
+            <circle cx="352" cy="432" r="3" />
+            <circle cx="352" cy="504" r="3" />
+            <circle cx="352" cy="576" r="3" />
+
+            {/* Bottom */}
+            <circle cx="352" cy="702" r="3" />
+            <circle cx="640" cy="702" r="3" />
+            <circle cx="960" cy="702" r="3" />
+            <circle cx="1248" cy="702" r="3" />
+          </g>
+        </svg>
 
         {/* ================= CENTRAL HUB ================= */}
         <div className="eco-hub">
