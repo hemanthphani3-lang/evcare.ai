@@ -1,13 +1,13 @@
 .app-container {
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
 
 .canvas-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   z-index: 0;
   pointer-events: none;
@@ -31,7 +31,7 @@
 .section.hero-main {
   position: relative;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +79,7 @@
   width: 100%;
   height: 100%;
   z-index: 3;
-  backdrop-filter: blur(0px); /* Keep background image sharp and detailed */
+  backdrop-filter: blur(0px);  -webkit-backdrop-filter: blur(0px); /* Keep background image sharp and detailed */
   -webkit-backdrop-filter: blur(0px);
   mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
   -webkit-mask-image: radial-gradient(ellipse at center, transparent 50%, black 100%);
@@ -93,7 +93,7 @@
   width: 100%;
   height: 65vh; /* Cover the bottom half of the hero image */
   z-index: 4; /* Below text (10), above edge blur (3) */
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);  -webkit-backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 40%);
@@ -112,7 +112,7 @@
 
 @media (min-aspect-ratio: 1024/682) {
   .hero-content {
-    width: 100vw;
+    width: 100%;
     height: calc(100vw * 682 / 1024);
   }
 }
@@ -223,7 +223,7 @@
   text-decoration: none;
   z-index: 10;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);  -webkit-backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 50px;
   margin-top: 3rem;
@@ -282,7 +282,7 @@
 .feature-block {
   max-width: 500px;
   background: rgba(24, 24, 27, 0.65);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);  -webkit-backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 3rem;
   border-radius: 24px;
