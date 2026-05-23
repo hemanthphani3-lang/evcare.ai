@@ -1,5 +1,6 @@
 import React from 'react';
 import './IntelligenceUnit.css';
+import textLayerImg from './assets/ecosystem/text_layer.png';
 
 function IntelligenceUnit() {
   return (
@@ -31,7 +32,7 @@ function IntelligenceUnit() {
 
         {/* Center - We will place the device and text_layer graphic here if needed */}
         <div className="iu-center-graphic">
-            <img src="/src/assets/ecosystem/text_layer.png" alt="Intelligence Unit Diagram" style={{ opacity: 0.1, position: 'absolute', top: 0, left: '20%', width: '80%', zIndex: 0, pointerEvents: 'none' }} />
+            <img src={textLayerImg} alt="Intelligence Unit Diagram" style={{ opacity: 0.1, position: 'absolute', top: 0, left: '20%', width: '80%', zIndex: 0, pointerEvents: 'none' }} />
         </div>
 
         {/* Right Side Features (Interactive) */}

@@ -4,6 +4,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { RefreshCw, BrainCircuit, Bell, Lock, ShieldCheck, Wrench, CloudUpload, Zap, Smartphone, CheckCircle, Database, Navigation, Wifi } from 'lucide-react';
 import './Ecosystem.css';
 
+import scooterImg from './assets/ecosystem/scooter.png';
+import deviceImg from './assets/ecosystem/device.png';
+import mobileImg from './assets/ecosystem/mobile.png';
+import watchImg from './assets/ecosystem/watch.png';
+import laptopImg from './assets/ecosystem/laptop.png';
+
 gsap.registerPlugin(ScrollTrigger);
 
 function Ecosystem() {
@@ -73,7 +79,7 @@ function Ecosystem() {
         {/* ================= SCOOTER CARD ================= */}
         <div className="eco-scooter-card">
           <div className="eco-scooter-img-wrap">
-             <img src="/src/assets/ecosystem/scooter.png" alt="Scooter" />
+             <img src={scooterImg} alt="Scooter" />
           </div>
           <div className="eco-scooter-info">
              <h4>YOUR EV</h4>
@@ -204,7 +210,7 @@ function Ecosystem() {
         {/* ================= CENTRAL HUB ================= */}
         <div className="eco-hub">
           <div className="hub-glow"></div>
-          <img src="/src/assets/ecosystem/device.png" alt="InnoVibe Device" />
+          <img src={deviceImg} alt="InnoVibe Device" />
         </div>
 
         {/* ================= TOP INTELLIGENCE LAYER ================= */}
@@ -244,7 +250,7 @@ function Ecosystem() {
                 <li>Maintenance</li>
               </ul>
             </div>
-            <img src="/src/assets/ecosystem/mobile.png" alt="Mobile App" />
+            <img src={mobileImg} alt="Mobile App" />
           </div>
 
           {/* Smartwatch */}
@@ -258,7 +264,7 @@ function Ecosystem() {
                 <li>Theft Notifications</li>
               </ul>
             </div>
-            <img src="/src/assets/ecosystem/watch.png" alt="Smartwatch" />
+            <img src={watchImg} alt="Smartwatch" />
           </div>
 
           {/* Fleet Dashboard */}
@@ -272,7 +278,7 @@ function Ecosystem() {
                 <li>Maintenance Mgmt.</li>
               </ul>
             </div>
-            <img src="/src/assets/ecosystem/laptop.png" alt="Fleet Dashboard" />
+            <img src={laptopImg} alt="Fleet Dashboard" />
           </div>
 
         </div>
