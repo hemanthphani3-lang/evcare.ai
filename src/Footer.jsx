@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { Phone, Mail, Check, Send } from 'lucide-react';
-import evCareLogo from './assets/evcarelogo.png';
+import evCareLogo from './assets/logobgn.png';
 
 /* Social SVG Icons */
 const InstagramIcon = () => (
@@ -70,33 +70,13 @@ const Footer = () => {
 
   return (
     <footer className="main-footer">
-      <div className="footer-newsletter">
-        <div className="newsletter-container">
-          <h2 className="newsletter-text">
-            {status === 'success' ? 'Thank you for subscribing!' : 'Subscribe to learn about our latest news'}
-          </h2>
-          <form className="newsletter-input-wrapper" onSubmit={handleSubscribe}>
-            <input
-              type="email"
-              placeholder={status === 'success' ? 'Subscription active' : 'Enter your email'}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={status === 'loading' || status === 'success'}
-            />
-            <button className="newsletter-btn" type="submit" disabled={status === 'loading' || status === 'success'}>
-              {status === 'loading' ? <div className="spinner-small"></div> : status === 'success' ? <Check size={24} color="#10b981" /> : <Send size={24} />}
-            </button>
-          </form>
-        </div>
-      </div>
-
       {/* MAIN FOOTER CONTENT */}
       <div className="footer-main-content">
         <div className="footer-grid">
           {/* LOGO COLUMN */}
           <div className="footer-logo-column">
             <img src={evCareLogo} alt="EVcare.AI Logo" className="footer-logo-img" />
-            <h3 className="footer-brand-name">EVcare.AI</h3>
+            <h3 className="footer-brand-name">EVCARE.AI</h3>
             <p className="brand-tagline">AI powered intelligence for smarter EV journeys.</p>
 
             {/* Social Links */}

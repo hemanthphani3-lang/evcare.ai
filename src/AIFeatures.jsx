@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
 import './AIFeatures.css';
+import connectivityGraphic from './assets/why-care.png';
 import aiBgImage from './assets/ai-features-bg.jpg';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +12,7 @@ const AIFeatures = () => {
   const sectionRef = useRef(null);
   const imgRef     = useRef(null);
   const headingRef = useRef(null);
+  const graphicRef = useRef(null);
   const labelsRef  = useRef(null);
   const footerRef  = useRef(null);
 
@@ -29,6 +31,17 @@ const AIFeatures = () => {
       );
       // Heading sweeps in from left
       gsap.fromTo(headingRef.current,
+        { opacity: 0, x: -60 },
+        {
+          opacity: 1, x: 0, ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 70%', end: 'center center', scrub: 1.2,
+          },
+        }
+      );
+      // Graphic sweeps in from left (same as heading)
+      gsap.fromTo(graphicRef.current,
         { opacity: 0, x: -60 },
         {
           opacity: 1, x: 0, ease: 'power3.out',
@@ -85,7 +98,10 @@ const AIFeatures = () => {
         </p>
       </div>
 
-      {/* ② Dynamic container that scales with the image's aspect ratio */}
+      {/* Inserted Connectivity Graphic (Image 1) */}
+      <img ref={graphicRef} src={connectivityGraphic} alt="EV Connectivity Graphic" className="ai-connectivity-graphic" />
+
+      {/* 🚀 Dynamic container that scales with the image's aspect ratio */}
       <div className="ai-image-container" ref={imgRef}>
         
         {/* Top half: Hardware Platform */}

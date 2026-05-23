@@ -94,7 +94,7 @@
 /* ─── TOP-LEFT: Heading block ─────────────────────────────── */
 .ai-heading-block {
   position: absolute;
-  top: 48px;
+  top: -220px;
   left: 56px;
   max-width: 400px;
   z-index: 20;
@@ -258,3 +258,14 @@
   transition: gap 0.2s ease;
 }
 .ai-footer-cta:hover { gap: 12px; }
+
+/* Inserted Connectivity Graphic */
+.ai-connectivity-graphic {
+  position: absolute;
+  top: 80px;
+  left: 60px;
+  width: 35vw;
+  max-width: 420px;
+  height: auto;
+  z-index: 15;
+}

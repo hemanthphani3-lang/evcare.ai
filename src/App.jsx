@@ -8,7 +8,7 @@ import { Activity, Battery, ShieldAlert, Cpu } from 'lucide-react';
 import './App.css';
 import EVModel from './EVModel';
 import Header from './Header';
-import EnquiryForm from './EnquiryForm';
+
 import DashboardShowcase from './DashboardShowcase';
 import SavingsCalculator from './SavingsCalculator';
 import HowItWorks from './HowItWorks';
@@ -116,8 +116,6 @@ function App() {
       
               <div id="diagnostics"><DashboardShowcase /></div>
               <div id="savings"><SavingsCalculator /></div>
-              
-              <div id="enquiry"><EnquiryForm /></div>
               <CallbackWidget />
               <Footer />
       
