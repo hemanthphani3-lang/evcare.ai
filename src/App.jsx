@@ -8,12 +8,10 @@ import { Activity, Battery, ShieldAlert, Cpu } from 'lucide-react';
 import './App.css';
 import EVModel from './EVModel';
 import Header from './Header';
-import WhyCareEV from './WhyCareEV';
 import EnquiryForm from './EnquiryForm';
 import DashboardShowcase from './DashboardShowcase';
 import SavingsCalculator from './SavingsCalculator';
 import HowItWorks from './HowItWorks';
-import AppShowcase from './AppShowcase';
 import CallbackWidget from './CallbackWidget';
 import Footer from './Footer';
 import Preloader from './Preloader';
@@ -119,8 +117,6 @@ function App() {
               <div id="diagnostics"><DashboardShowcase /></div>
               <div id="savings"><SavingsCalculator /></div>
               
-              <div id="fleet"><AppShowcase /></div>
-              <div id="about"><WhyCareEV /></div>
               <div id="enquiry"><EnquiryForm /></div>
               <CallbackWidget />
               <Footer />
