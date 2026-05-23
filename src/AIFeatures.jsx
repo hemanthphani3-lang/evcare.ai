@@ -69,7 +69,7 @@ const AIFeatures = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="ai-features-section">
+    <section id="benefits" ref={sectionRef} className="ai-features-section">
       {/* Smoke layers */}
       <div className="smoke-layer smoke-1" />
       <div className="smoke-layer smoke-2" />
@@ -87,14 +87,18 @@ const AIFeatures = () => {
 
       {/* ② Dynamic container that scales with the image's aspect ratio */}
       <div className="ai-image-container" ref={imgRef}>
-        <img
-          src={aiBgImage}
-          alt="InnoVibe AI Features"
-          className="ai-features-img"
-        />
+        
+        {/* Top half: Hardware Platform */}
+        <div className="ai-image-top">
+          <img src={aiBgImage} alt="Hardware Platform" className="ai-features-img-top" />
+        </div>
 
-        {/* Icon text labels — absolute-positioned relative to the image coordinates */}
-        <div className="ai-icon-labels" ref={labelsRef}>
+        {/* Bottom half: Glowing Icons and Cards (Shifted up to close the gap) */}
+        <div className="ai-image-bottom">
+          <img src={aiBgImage} alt="" className="ai-features-img-bottom" />
+
+          {/* Icon text labels */}
+          <div className="ai-icon-labels" ref={labelsRef}>
           {[
             { title: 'PREDICTIVE\nINTELLIGENCE',  desc: 'AI that detects issues before they happen.' },
             { title: 'REAL-TIME\nPROTECTION',     desc: 'Continuous monitoring that safeguards your EV.' },
@@ -110,6 +114,7 @@ const AIFeatures = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
 

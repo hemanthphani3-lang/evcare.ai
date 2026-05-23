@@ -98,7 +98,7 @@ function App() {
                       Advanced diagnostics. Real-time insights.<br />
                       Smarter decisions for the future of mobility.
                     </p>
-                    <a href="#services" className="hero-explore-btn">
+                    <a href="#ecosystem" className="hero-explore-btn">
                       Explore More <span className="arrow-line"></span>
                     </a>
                   </div>
@@ -112,7 +112,7 @@ function App() {
               
               <AIFeatures />
               <Ecosystem />
-              <div id="features"><HowItWorks /></div>
+              <div id="use-cases"><HowItWorks /></div>
       
               <div id="diagnostics"><DashboardShowcase /></div>
               <div id="savings"><SavingsCalculator /></div>

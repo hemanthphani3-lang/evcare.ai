@@ -163,7 +163,6 @@
 
 .path-btn.book:hover {
   background: rgba(59, 130, 246, 0.05);
-  transform: translateY(-5px);
   border-color: rgba(59, 130, 246, 1);
   box-shadow: 
     0 10px 45px rgba(59, 130, 246, 0.4),
@@ -182,7 +181,6 @@
 
 .path-btn.invest:hover {
   background: rgba(20, 184, 166, 0.05);
-  transform: translateY(-5px);
   border-color: rgba(20, 184, 166, 1);
   box-shadow: 
     0 10px 45px rgba(20, 184, 166, 0.4),
@@ -197,7 +195,7 @@
 }
 
 .path-btn:hover .path-icon {
-  transform: scale(1.1);
+  /* Removed scale on hover to keep position fixed */
 }
 
 .blue-icon {
@@ -233,7 +231,7 @@
 }
 
 .path-btn:hover .path-arrow svg {
-  transform: translateX(6px);
+  /* Removed translation on hover to keep arrow perfectly centered */
 }
 
 .path-btn.book .path-arrow {

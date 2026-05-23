@@ -87,7 +87,7 @@
   padding: 0 60px;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
-  gap: 10rem; /* Ultrawide gap */
+  gap: 7rem; /* Reduced horizontal gap by ~30% for a more compact, premium layout */
 }
 
 .footer-logo-img {
@@ -118,7 +118,6 @@
 .footer-right {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .brand-hq p {
@@ -184,9 +183,10 @@
 }
 
 .social-icon:hover {
-  color: #10b981;
+  color: #3b82f6; /* Premium EV blue */
   opacity: 1;
-  transform: translateY(-3px);
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  /* No transform, position is locked */
 }
 
 /* GOOGLE PLAY BUTTON */
@@ -234,19 +234,36 @@
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem; /* Reduced excessive spacing */
 }
 
 .contact-item {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.3rem;
   color: #a1a1aa;
   font-size: 0.95rem;
 }
 
+.contact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
+.contact-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e4e4e7;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 .contact-icon {
-  color: #10b981;
+  color: #3b82f6; /* Blue to match the new social glow */
 }
 
 /* FOOTER BOTTOM */

@@ -138,7 +138,7 @@ const InnoVibe = () => {
   ];
 
   return (
-    <section className="innovibe-section" id="innovibe" ref={sectionRef}>
+    <section className="innovibe-section" id="hardware" ref={sectionRef}>
       <div className="innovibe-slide-container">
         
         {/* Aspect ratio-locked dynamic widescreen wrapper (1400x800 coordinate space) */}

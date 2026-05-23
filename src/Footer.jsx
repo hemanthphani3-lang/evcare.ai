@@ -97,21 +97,7 @@ const Footer = () => {
           <div className="footer-logo-column">
             <img src={evCareLogo} alt="EVcare.AI Logo" className="footer-logo-img" />
             <h3 className="footer-brand-name">EVcare.AI</h3>
-            <p className="brand-tagline">Intelligence Behind Every Ride</p>
-
-            {/* Google Play Button */}
-            <a
-              href="https://play.google.com/store/apps/details?id=com.st.innovibe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="footer-store-btn"
-            >
-              <PlayStoreIcon />
-              <div className="footer-btn-text">
-                <span className="footer-btn-sub">GET IT ON</span>
-                <span className="footer-btn-main">Google Play</span>
-              </div>
-            </a>
+            <p className="brand-tagline">AI powered intelligence for smarter EV journeys.</p>
 
             {/* Social Links */}
             <div className="social-links">
@@ -123,16 +109,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* SOLUTIONS */}
+          {/* QUICK LINKS */}
           <div className="footer-column">
-            <h4>Solutions</h4>
+            <h4>Quick Links</h4>
             <ul>
-              <li><a href="#services">EV Battery</a></li>
-              <li><a href="#services">EV Rental</a></li>
-              <li><a href="#services">EV Fleet</a></li>
-              <li><a href="#services">EV Charging</a></li>
-              <li><a href="#services">EV Spares</a></li>
-              <li><a href="#services">EV Insurance</a></li>
+              <li><a href="#hardware">Hardware</a></li>
+              <li><a href="#benefits">Benefits</a></li>
+              <li><a href="#ecosystem">Ecosystem</a></li>
+              <li><a href="#use-cases">Use Cases</a></li>
+              <li><a href="#book">Book Now</a></li>
             </ul>
           </div>
 
@@ -141,10 +126,7 @@ const Footer = () => {
             <h4>Company</h4>
             <ul>
               <li><a href="#about">About Us</a></li>
-              <li><a href="#about">Why EVcare</a></li>
-              <li><a href="#about">Our Network</a></li>
-              <li><a href="#about">Franchise</a></li>
-              <li><a href="#about">Careers</a></li>
+              <li><a href="#benefits">Why EVcare</a></li>
             </ul>
           </div>
 
@@ -154,7 +136,6 @@ const Footer = () => {
             <ul>
               <li><Link to="/privacy-policy">Privacy Policy</Link></li>
               <li><Link to="/terms-and-conditions">Terms of Service</Link></li>
-              <li><Link to="/refund-policy">Refund Policy</Link></li>
               <li><a href="#enquiry">Contact Us</a></li>
             </ul>
           </div>
@@ -163,18 +144,25 @@ const Footer = () => {
           <div className="footer-column footer-right">
             <div className="contact-details">
               <div className="contact-item">
-                <Phone size={18} className="contact-icon" />
-                <span>+91 9014336878</span>
+                <div className="contact-label">Phone</div>
+                <div className="contact-value">
+                  <Phone size={16} className="contact-icon" />
+                  <span>+91 9014336878</span>
+                </div>
               </div>
               <div className="contact-item">
-                <Mail size={18} className="contact-icon" />
-                <span>Customercare@innovibemobility.com</span>
+                <div className="contact-label">Email</div>
+                <div className="contact-value">
+                  <Mail size={16} className="contact-icon" />
+                  <span>Customercare@innovibemobility.com</span>
+                </div>
               </div>
-            </div>
-
-            <div className="brand-hq">
-              <p>Headquarters:</p>
-              <span>Gitam iTBI, VDA, Rushikonda,<br />Visakhapatnam, AP - 530045</span>
+              <div className="contact-item">
+                <div className="contact-label">Headquarters</div>
+                <div className="contact-value">
+                  <span>Gitam iTBI, VDA, Rushikonda,<br />Visakhapatnam, AP - 530045</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -182,11 +170,12 @@ const Footer = () => {
 
       {/* BOTTOM COPYRIGHT */}
       <div className="footer-bottom">
-        <p>Copyright © 2026 InnoVibe EVcare.AI Mobility Ltd. All Rights Reserved.</p>
+        <p>&copy; 2026 EVCARE.AI | Powered by InnoVibe Mobility</p>
       </div>
     </footer>
   );
 };
 
-export default Footer;
 
+
+export default Footer;

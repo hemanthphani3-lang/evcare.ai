@@ -11,7 +11,7 @@ const ExperienceSelector = () => {
     company: '', fleetSize: '', investmentCapacity: '', areaOfInterest: ''
   });
   return (
-    <section className="experience-selector-section background-mode">
+    <section id="book" className="experience-selector-section background-mode">
       
       {/* Moving Background Image */}
       <img src={costImg} alt="EVcare Service" className="cost-background-image" />

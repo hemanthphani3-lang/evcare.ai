@@ -18,7 +18,7 @@ function Ecosystem() {
   }, []);
 
   return (
-    <section className="ecosystem-section" ref={sectionRef}>
+    <section id="ecosystem" className="ecosystem-section" ref={sectionRef}>
       <div className="eco-bg"></div>
 
       <div className="eco-container">
