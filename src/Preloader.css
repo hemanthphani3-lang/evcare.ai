@@ -42,12 +42,16 @@
 }
 
 .preloader-logo-inner {
-  width: 120px; /* Refined size for the circle */
-  height: auto;
+  width: 140px; /* Refined size for the circle */
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .preloader-logo-img {

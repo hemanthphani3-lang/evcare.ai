@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Preloader.css';
 import gsap from 'gsap';
-import evCareLogo from './assets/evcarelogo.png';
+import evCareLogo from './assets/logo.png';
 
 const Preloader = ({ onComplete }) => {
   const [percentage, setPercentage] = useState(0);

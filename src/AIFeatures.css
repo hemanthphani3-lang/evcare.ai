@@ -2,9 +2,10 @@
 .ai-features-section {
   position: relative;
   width: 100vw;
+  max-width: 100vw;
   height: 100vh;
   background-color: #000000;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to allow the footer to overlap the next section */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,7 +175,7 @@
 /* ─── BOTTOM: Footer bar ──────────────────────────────────── */
 .ai-footer-bar {
   position: absolute;
-  bottom: 0; /* Restored to 0 so it is fully visible and not clipped */
+  bottom: -36px; /* Moved lower to overlap the next section boundary */
   left: 56px;
   right: 56px;
   display: flex;

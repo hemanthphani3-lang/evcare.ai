@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './HowItWorks.css';
-import hiwSlideImage from './assets/frame 1.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,7 +47,7 @@ const HowItWorks = () => {
       });
 
       tl.to(wipeRef.current, { scale: 1.5, opacity: 0, duration: 1 }, 0)
-        .to(containerRef.current, { backgroundColor: "rgba(255, 255, 255, 0)", duration: 1 }, 0);
+        .to(containerRef.current, { opacity: 0, duration: 1 }, 0);
     }, containerRef);
 
     return () => ctx.revert();
@@ -59,7 +58,9 @@ const HowItWorks = () => {
       <div className="hiw-content">
         <div ref={wipeRef} className="hiw-wipe-container">
           <div className="hiw-slide-wrapper">
-            <img src={hiwSlideImage} alt="Intelligence in Every Journey" className="hiw-slide-bg" />
+            <h2 className="hiw-title brand-text">
+              HOW EVcare.AI WORKS?
+            </h2>
           </div>
         </div>
       </div>

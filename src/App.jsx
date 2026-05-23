@@ -12,7 +12,6 @@ import WhyCareEV from './WhyCareEV';
 import EnquiryForm from './EnquiryForm';
 import DashboardShowcase from './DashboardShowcase';
 import SavingsCalculator from './SavingsCalculator';
-import Services from './Services';
 import HowItWorks from './HowItWorks';
 import AppShowcase from './AppShowcase';
 import CallbackWidget from './CallbackWidget';
@@ -119,7 +118,6 @@ function App() {
       
               <div id="diagnostics"><DashboardShowcase /></div>
               <div id="savings"><SavingsCalculator /></div>
-              <div id="services"><Services /></div>
               
               <div id="fleet"><AppShowcase /></div>
               <div id="about"><WhyCareEV /></div>
