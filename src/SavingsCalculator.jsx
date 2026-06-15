@@ -12,7 +12,7 @@ const ExperienceSelector = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJNbRFA29ntO-RVzNWqffx5f9Nkw40c2dA-fk6vlLJ1Cn1tb7Gw3Fgv2ATDnrkfZDI/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzdM-8n0DRETFQZWOvZ0o9QvLaEUTyEHosyPJfzt3xlsYIA2d1jcG6UHnJiXW17GACa/exec';
 
   const handleSubmit = async (formType) => {
     setIsSubmitting(true);
