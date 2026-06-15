@@ -85,7 +85,7 @@ const Footer = () => {
               <a href="https://www.facebook.com/innovibecare.ev" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook"><FacebookIcon /></a>
               <a href="https://www.youtube.com/@innovibecare-ev" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube"><YouTubeIcon /></a>
               <a href="https://x.com/InnovibeCareEV" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Twitter"><TwitterIcon /></a>
-              <a href="https://www.linkedin.com/company/innovibe-mobility-india-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn"><LinkedInIcon /></a>
+              <a href="https://www.linkedin.com/in/innovibemobility/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn"><LinkedInIcon /></a>
             </div>
           </div>
 
@@ -105,7 +105,7 @@ const Footer = () => {
           <div className="footer-column">
             <h4>Company</h4>
             <ul>
-              <li><a href="#about">About Us</a></li>
+              <li><a href="#ecosystem">About Us</a></li>
               <li><a href="#benefits">Why EVcare</a></li>
             </ul>
           </div>
@@ -124,23 +124,16 @@ const Footer = () => {
           <div className="footer-column footer-right">
             <div className="contact-details">
               <div className="contact-item">
-                <div className="contact-label">Phone</div>
-                <div className="contact-value">
-                  <Phone size={16} className="contact-icon" />
-                  <span>+91 9014336878</span>
-                </div>
-              </div>
-              <div className="contact-item">
                 <div className="contact-label">Email</div>
                 <div className="contact-value">
                   <Mail size={16} className="contact-icon" />
-                  <span>Customercare@innovibemobility.com</span>
+                  <span>contact@evcare.co.in</span>
                 </div>
               </div>
               <div className="contact-item">
                 <div className="contact-label">Headquarters</div>
                 <div className="contact-value">
-                  <span>Gitam iTBI, VDA, Rushikonda,<br />Visakhapatnam, AP - 530045</span>
+                  <span>Rushikonda, Visakhapatnam, AP - 530045.</span>
                 </div>
               </div>
             </div>

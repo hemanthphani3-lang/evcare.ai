@@ -21,9 +21,9 @@ const Header = () => {
         </nav>
         <div className="logo brand-text">EVCARE.AI</div>
         <nav className="nav-links right-links">
-          <a href="#about">About Us</a>
-          <a href="#enquiry">Contact</a>
-          <a href="#enquiry" className="nav-item-btn">Enquire Now</a>
+          <a href="#ecosystem">About Us</a>
+          <a href="#book">Contact</a>
+          <a href="#book" className="nav-item-btn">Enquire Now</a>
         </nav>
       </div>
     </header>
