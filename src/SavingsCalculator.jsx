@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CalendarDays, ChartNoAxesCombined, ArrowRight, User, Network, X } from 'lucide-react';
+import { CalendarDays, ChartNoAxesCombined, ArrowRight, User, Network, X, CheckCircle } from 'lucide-react';
 import './SavingsCalculator.css';
 
 import costImg from './assets/cost.png';
@@ -10,6 +10,38 @@ const ExperienceSelector = () => {
     name: '', phone: '', email: '', city: '', evModel: '', budget: '', message: '',
     company: '', fleetSize: '', investmentCapacity: '', areaOfInterest: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyT3jKYX8DtqviaHaEDo0DATsJFaEUO5KiuHFdavL8LyJ9252X9jQ0EJQBBd8kORWqK/exec';
+
+  const handleSubmit = async (formType) => {
+    setIsSubmitting(true);
+    const payload = {
+      formType,
+      ...formData
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+      setFormData({
+        name: '', phone: '', email: '', city: '', evModel: '', budget: '', message: '',
+        company: '', fleetSize: '', investmentCapacity: '', areaOfInterest: ''
+      });
+      setModalStep('success');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="book" className="experience-selector-section background-mode">
       
@@ -150,8 +182,8 @@ const ExperienceSelector = () => {
                             value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
                 </div>
 
-                <button className="path-btn book ev-submit-btn" onClick={() => setModalStep('hidden')}>
-                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>BOOK NOW</span>
+                <button className="path-btn book ev-submit-btn" onClick={() => handleSubmit('Individual Rider')} disabled={isSubmitting}>
+                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>{isSubmitting ? 'SUBMITTING...' : 'BOOK NOW'}</span>
                   <div className="path-arrow" style={{marginTop: '0', width: '36px', height: '36px'}}><ArrowRight size={20} strokeWidth={2} /></div>
                 </button>
               </div>
@@ -217,8 +249,8 @@ const ExperienceSelector = () => {
                             value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
                 </div>
 
-                <button className="path-btn invest ev-submit-btn" onClick={() => setModalStep('hidden')}>
-                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>REQUEST CONSULTATION</span>
+                <button className="path-btn invest ev-submit-btn" onClick={() => handleSubmit('Fleet Owner')} disabled={isSubmitting}>
+                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>{isSubmitting ? 'SUBMITTING...' : 'REQUEST CONSULTATION'}</span>
                   <div className="path-arrow" style={{marginTop: '0', width: '36px', height: '36px'}}><ArrowRight size={20} strokeWidth={2} /></div>
                 </button>
               </div>
@@ -284,9 +316,27 @@ const ExperienceSelector = () => {
                             value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} />
                 </div>
 
-                <button className="path-btn invest ev-submit-btn" onClick={() => setModalStep('hidden')}>
-                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>SUBMIT INTEREST</span>
+                <button className="path-btn invest ev-submit-btn" onClick={() => handleSubmit('Investor')} disabled={isSubmitting}>
+                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>{isSubmitting ? 'SUBMITTING...' : 'SUBMIT INTEREST'}</span>
                   <div className="path-arrow" style={{marginTop: '0', width: '36px', height: '36px'}}><ArrowRight size={20} strokeWidth={2} /></div>
+                </button>
+              </div>
+            )}
+
+            {modalStep === 'success' && (
+              <div className="ev-modal-view" style={{ textAlign: 'center', padding: '3rem 1rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+                  <div style={{ backgroundColor: '#00e5ff20', width: '104px', height: '104px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <CheckCircle className="path-icon blue-icon" size={64} strokeWidth={1.5} style={{ margin: 0 }} />
+                  </div>
+                </div>
+                <h2 className="ev-modal-title" style={{ fontSize: '2rem', marginBottom: '1rem' }}>Thank You!</h2>
+                <p className="ev-form-subtitle" style={{ fontSize: '1.1rem', marginBottom: '2rem' }}>
+                  Your details have been submitted successfully. Our team will reach out to you shortly.
+                </p>
+                <button className="path-btn book ev-submit-btn" style={{ margin: '0 auto', maxWidth: '300px' }} onClick={() => setModalStep('hidden')}>
+                  <span className="path-btn-text" style={{fontSize: '1.2rem', marginTop: '0'}}>CLOSE</span>
+                  <div className="path-arrow" style={{marginTop: '0', width: '36px', height: '36px'}}><X size={20} strokeWidth={2} /></div>
                 </button>
               </div>
             )}
