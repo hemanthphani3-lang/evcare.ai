@@ -10,81 +10,297 @@
   align-items: center;
   z-index: 99999;
   overflow: hidden;
+  will-change: opacity, mask-image, -webkit-mask-image;
 }
 
-.preloader-content {
+/* THE PORTAL TRANSITION MASK */
+.preloader-container.portal-active {
+  mask-image: radial-gradient(circle var(--portal-radius, 0px) at 50% calc(50vh - 33px), transparent 99%, #000 100%);
+  -webkit-mask-image: radial-gradient(circle var(--portal-radius, 0px) at 50% calc(50vh - 33px), transparent 99%, #000 100%);
+}
+
+/* Scene 1: Faint Green Pulse */
+.transmission-pulse {
+  position: absolute;
+  top: 37.8%; /* Centered at the AI Core coordinates */
+  left: 50.4%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #10b981;
+  filter: blur(4px) drop-shadow(0 0 15px #10b981);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Scene 2: Horizontal scanning energy wave */
+.horizontal-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.75) 50%, transparent);
+  filter: drop-shadow(0 0 8px #10b981);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  will-change: top, opacity;
+}
+
+/* Console System terminal text */
+.transmission-terminal {
+  position: absolute;
+  top: 42%;
+  width: 100%;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3rem;
-  position: relative;
+  gap: 14px;
+  z-index: 12;
+  pointer-events: none;
 }
 
-.circular-loader-wrapper {
+.terminal-line {
+  font-family: 'Poppins-Regular', 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  opacity: 0;
+  will-change: opacity;
+  text-transform: uppercase;
+}
+
+.line-1 {
+  color: #888888;
+}
+
+.line-2 {
+  color: #10b981;
+  font-weight: bold;
+  text-shadow: 0 0 12px rgba(16, 185, 129, 0.45);
+}
+
+.line-3 {
+  color: #666666;
+  font-size: 9px;
+}
+
+/* Brand logo intro wrapper */
+.brand-intro-wrapper {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 270px;
+  height: 270px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4;
 }
 
-.progress-ring {
+/* Ambient Radial Glow */
+.ambient-glow-back {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, rgba(0, 229, 255, 0.08) 45%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+  transform-origin: center center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* AI Core Laser Energy Pulse Ring */
+.energy-pulse {
+  position: absolute;
+  top: 37.8%; /* Centered at the green dot in favicon.png */
+  left: 50.4%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1.5px solid #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.8), inset 0 0 10px rgba(16, 185, 129, 0.8);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* White Circle Badge Background Layer */
+.logo-white-circle-bg {
+  position: absolute;
+  top: 0.16%;
+  left: 0.32%;
+  width: 99.6%;
+  height: 99.76%;
+  background: #ffffff;
+  border-radius: 50%;
+  z-index: 2;
+  transform-origin: center center;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* Logo Symbol segments wrapper */
+.logo-symbol-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotate(-90deg);
-}
-
-.progress-ring__circle {
-  transition: stroke-dashoffset 0.1s linear;
-  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.4));
-}
-
-.preloader-logo-inner {
-  width: 140px; /* Refined size for the circle */
-  height: 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.preloader-logo-img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  z-index: 3;
+  transform-origin: 50.4% 37.8%; /* Center of rotation is green dot */
+  will-change: transform;
+}
+
+/* Base style for deconstructed image parts */
+.logo-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  pointer-events: none;
+  will-change: transform, opacity, filter;
 }
 
-.preloader-info {
+/* Precise CSS Clip-Path Masks for Logo Symbol */
+.part-green-dot {
+  clip-path: circle(5.0% at 50.4% 37.8%);
+  z-index: 5;
+}
+
+.part-blue-arc {
+  clip-path: polygon(14% 16.5%, 50.4% 16.5%, 50.4% 32.8%, 44% 32.8%, 44% 42.8%, 56.8% 42.8%, 56.8% 42%, 83.1% 42%, 83.1% 65%, 14% 65%);
+  z-index: 3;
+}
+
+.part-green-arc {
+  clip-path: inset(18.6% 27% 57.2% 56.8%);
+  z-index: 4;
+}
+
+/* Typography Reveal Container */
+.text-reveal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  clip-path: inset(65% 9.7% 19% 2.3%); /* Clips exactly to EVcare.Ai text */
+  will-change: opacity;
+}
+
+.brand-logo-text {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Text sweep mask overlay */
+.text-sweep-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: overlay;
+}
+
+.text-light-sweep {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Tagline Container */
+.tagline-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  clip-path: inset(81% 9.7% 6.5% 2.3%); /* Clips exactly to Tagline and lines */
+  will-change: opacity, transform;
+}
+
+.brand-logo-tagline {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Scene 4: Monumental future tagline text */
+.future-message {
+  position: absolute;
+  bottom: 12%;
+  width: 100%;
   text-align: center;
-}
-
-.preloader-tagline {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5rem;
-  color: #555555;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.preloader-percentage {
-  font-family: 'Chillax', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-family: 'Chillax-Bold', 'Inter', sans-serif;
+  font-size: 11px;
   color: #ffffff;
-  opacity: 0.8;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.28em;
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: opacity, transform;
+  z-index: 10;
+  text-transform: uppercase;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+  pointer-events: none;
 }
 
-@keyframes dash {
-  from { stroke-dashoffset: 565.48; }
-  to { stroke-dashoffset: 0; }
+/* Respect prefers-reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .logo-part, .text-reveal-container, .tagline-container {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+  .logo-white-circle-bg {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .part-blue-arc {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+  .energy-pulse, .transmission-pulse, .horizontal-wave, .transmission-terminal, .future-message {
+    display: none !important;
+  }
+  .ambient-glow-back {
+    opacity: 0.5 !important;
+    transform: none !important;
+  }
+  .preloader-container.portal-active {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
 }
-
