@@ -8,7 +8,7 @@ const CallbackWidget = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    pinCode: ''
+    city: ''
   });
 
   React.useEffect(() => {
@@ -37,7 +37,7 @@ const CallbackWidget = () => {
         formType: 'Call Back Request',
         name: formData.name,
         phone: formData.phone,
-        city: formData.pinCode,
+        city: formData.city,
         email: '',
         evModel: '',
         budget: '',
@@ -58,7 +58,7 @@ const CallbackWidget = () => {
       });
 
       setStatus('success');
-      setFormData({ name: '', phone: '', pinCode: '' });
+      setFormData({ name: '', phone: '', city: '' });
       setTimeout(() => {
         setIsOpen(false);
         setStatus('idle');
@@ -116,9 +116,9 @@ const CallbackWidget = () => {
             <div className="widget-form-group">
               <input 
                 type="text" 
-                name="pinCode" 
-                placeholder="Enter Pin Code or Area*" 
-                value={formData.pinCode} 
+                name="city" 
+                placeholder="City*" 
+                value={formData.city} 
                 onChange={handleChange} 
                 required 
               />
