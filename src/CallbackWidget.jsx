@@ -26,26 +26,35 @@ const CallbackWidget = () => {
 
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzejqXCqcNrHCZ_z2ToV_PO1JqPMC0pF53MhoNkWT8JnD8tM4z47WM_u5i_bVppGfm-/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzdM-8n0DRETFQZWOvZ0o9QvLaEUTyEHosyPJfzt3xlsYIA2d1jcG6UHnJiXW17GACa/exec';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
 
     try {
-      const params = new URLSearchParams();
-      params.append('type', 'callback');
-      params.append('name', formData.name);
-      params.append('phone', formData.phone);
-      params.append('pincode', formData.pinCode);
+      const payload = {
+        formType: 'Call Back Request',
+        name: formData.name,
+        phone: formData.phone,
+        city: formData.pinCode,
+        email: '',
+        evModel: '',
+        budget: '',
+        message: '',
+        company: '',
+        fleetSize: '',
+        investmentCapacity: '',
+        areaOfInterest: ''
+      };
 
       await fetch(SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: params.toString(),
+        body: JSON.stringify(payload),
       });
 
       setStatus('success');
