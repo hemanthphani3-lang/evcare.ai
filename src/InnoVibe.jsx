@@ -90,8 +90,8 @@ const InnoVibe = () => {
       icon: Wifi,
       title: "SECURE CONNECTIVITY",
       desc: "Global connectivity with eSIM support.",
-      linePath: "M 1050 272 L 942 272 L 525 380",
-      dotDevice: { cx: 525, cy: 380 },
+      linePath: "M 1050 272 L 942 272 L 750 380",
+      dotDevice: { cx: 750, cy: 380 },
       dotIcon: { cx: 1050, cy: 272 }
     },
     {
