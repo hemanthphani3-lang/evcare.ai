@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://evcare.ai/sitemap.xml
+Sitemap: https://www.evcare.co.in/sitemap.xml
