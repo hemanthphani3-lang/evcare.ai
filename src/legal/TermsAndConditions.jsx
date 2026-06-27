@@ -6,6 +6,7 @@ import './LegalPage.css';
 const TermsAndConditions = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Terms & Conditions | EVcare.AI";
   }, []);
 
   return (

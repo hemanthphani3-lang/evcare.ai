@@ -68,6 +68,12 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!loading) {
+      document.title = "EVcare.AI | AI-Powered EV Intelligence & Diagnostics";
+    }
+  }, [loading]);
+
   return (
     <Routes>
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -89,9 +95,9 @@ function App() {
                 <div className="hero-scroll-blur" ref={scrollBlurRef}></div>
                 
                 <div className="hero-content">
-                  <div className="hero-top-left fade-in-up">
+                  <h1 className="hero-top-left fade-in-up">
                     AI-POWERED EV INTELLIGENCE
-                  </div>
+                  </h1>
                   
                   <div className="hero-bottom-left fade-in-up delay-1">
                     <p className="hero-description">

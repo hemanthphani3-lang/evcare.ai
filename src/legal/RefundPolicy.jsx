@@ -6,6 +6,7 @@ import './LegalPage.css';
 const RefundPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Refund Policy | EVcare.AI";
   }, []);
 
   return (

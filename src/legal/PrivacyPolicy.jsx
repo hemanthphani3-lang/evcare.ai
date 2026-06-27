@@ -6,6 +6,7 @@ import './LegalPage.css';
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = "Privacy Policy | EVcare.AI";
   }, []);
 
   return (
