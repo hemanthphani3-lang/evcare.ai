@@ -99,19 +99,19 @@ const AIFeatures = () => {
       </div>
 
       {/* Inserted Connectivity Graphic (Image 1) */}
-      <img ref={graphicRef} src={connectivityGraphic} alt="EV Connectivity Graphic" className="ai-connectivity-graphic" />
+      <img ref={graphicRef} src={connectivityGraphic} alt="EVcare.AI telemetry hardware connectivity and real-time data sync" className="ai-connectivity-graphic" />
 
       {/* 🚀 Dynamic container that scales with the image's aspect ratio */}
       <div className="ai-image-container" ref={imgRef}>
         
         {/* Top half: Hardware Platform */}
         <div className="ai-image-top">
-          <img src={aiBgImage} alt="Hardware Platform" className="ai-features-img-top" />
+          <img src={aiBgImage} alt="EVcare.AI hardware platform for electric vehicle battery metrics and cellular transmission" className="ai-features-img-top" />
         </div>
 
         {/* Bottom half: Glowing Icons and Cards (Shifted up to close the gap) */}
         <div className="ai-image-bottom">
-          <img src={aiBgImage} alt="" className="ai-features-img-bottom" />
+          <img src={aiBgImage} alt="EVcare.AI predictive dashboard displaying battery status and fault analytics" className="ai-features-img-bottom" />
 
           {/* Icon text labels */}
           <div className="ai-icon-labels" ref={labelsRef}>
