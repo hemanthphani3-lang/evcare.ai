@@ -70,7 +70,7 @@ function App() {
 
   useEffect(() => {
     if (!loading) {
-      document.title = "EVcare.AI | AI-Powered EV Intelligence & Diagnostics";
+      document.title = "EVcare.AI | AI-Powered EV Diagnostics, Battery Analytics & Electric Vehicle Care";
     }
   }, [loading]);
 
@@ -101,8 +101,8 @@ function App() {
                   
                   <div className="hero-bottom-left fade-in-up delay-1">
                     <p className="hero-description">
-                      Advanced diagnostics. Real-time insights.<br />
-                      Smarter decisions for the future of mobility.
+                      Advanced diagnostics and real-time battery insights for electric vehicles.<br />
+                      Smarter decisions for the future of electric mobility.
                     </p>
                     <a href="#ecosystem" className="hero-explore-btn">
                       Explore More <span className="arrow-line"></span>
