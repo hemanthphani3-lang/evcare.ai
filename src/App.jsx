@@ -22,6 +22,7 @@ import TermsAndConditions from './legal/TermsAndConditions';
 import RefundPolicy from './legal/RefundPolicy';
 import AIFeatures from './AIFeatures';
 import Ecosystem from './Ecosystem';
+import MobileUX from './MobileUX';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,6 +31,13 @@ function App() {
   const containerRef = useRef(null);
   const scrollBlurRef = useRef(null);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     // Animate the feature blocks appearing as you scroll
@@ -71,6 +79,14 @@ function App() {
   useEffect(() => {
     if (!loading) {
       document.title = "EVcare.AI | AI-Powered EV Diagnostics, Battery Analytics & Electric Vehicle Care";
+      
+      const params = new URLSearchParams(window.location.search);
+      const scrollToVal = params.get('scroll');
+      if (scrollToVal) {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(scrollToVal, 10));
+        }, 800);
+      }
     }
   }, [loading]);
 
@@ -82,51 +98,55 @@ function App() {
       <Route path="/" element={
         <>
           {loading && <Preloader onComplete={() => setLoading(false)} />}
-          <div className="app-container" ref={containerRef}>
-            <Header />
-            
-            {/* Scrollable Content Layers */}
-            <div className="content-container">
+          {isMobile ? (
+            <MobileUX />
+          ) : (
+            <div className="app-container" ref={containerRef}>
+              <Header />
               
-              <section className="section hero hero-main">
-                <img src={heroImg} alt="EVcare.AI" className="hero-background" />
-                <div className="hero-overlay"></div>
-                <div className="hero-edge-blur"></div>
-                <div className="hero-scroll-blur" ref={scrollBlurRef}></div>
+              {/* Scrollable Content Layers */}
+              <div className="content-container">
                 
-                <div className="hero-content">
-                  <h1 className="hero-top-left fade-in-up">
-                    AI-POWERED EV INTELLIGENCE
-                  </h1>
+                <section className="section hero hero-main">
+                  <img src={heroImg} alt="EVcare.AI" className="hero-background" />
+                  <div className="hero-overlay"></div>
+                  <div className="hero-edge-blur"></div>
+                  <div className="hero-scroll-blur" ref={scrollBlurRef}></div>
                   
-                  <div className="hero-bottom-left fade-in-up delay-1">
-                    <p className="hero-description">
-                      Advanced diagnostics and real-time battery insights for electric vehicles.<br />
-                      Smarter decisions for the future of electric mobility.
-                    </p>
-                    <a href="#ecosystem" className="hero-explore-btn">
-                      Explore More <span className="arrow-line"></span>
-                    </a>
+                  <div className="hero-content">
+                    <h1 className="hero-top-left fade-in-up">
+                      AI-POWERED EV INTELLIGENCE
+                    </h1>
+                    
+                    <div className="hero-bottom-left fade-in-up delay-1">
+                      <p className="hero-description">
+                        Advanced diagnostics and real-time battery insights for electric vehicles.<br />
+                        Smarter decisions for the future of electric mobility.
+                      </p>
+                      <a href="#ecosystem" className="hero-explore-btn">
+                        Explore More <span className="arrow-line"></span>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              </section>
-              
-              {/* Small black transition slide */}
-              <div style={{ height: '15vh', backgroundColor: '#000', width: '100%', position: 'relative', zIndex: 10 }}></div>
+                </section>
+                
+                {/* Small black transition slide */}
+                <div style={{ height: '15vh', backgroundColor: '#000', width: '100%', position: 'relative', zIndex: 10 }}></div>
 
-              <InnoVibe />
-              
-              <AIFeatures />
-              <Ecosystem />
-              <div id="use-cases"><HowItWorks /></div>
-      
-              <div id="diagnostics"><DashboardShowcase /></div>
-              <div id="savings"><SavingsCalculator /></div>
-              <CallbackWidget />
-              <Footer />
-      
+                <InnoVibe />
+                
+                <AIFeatures />
+                <Ecosystem />
+                <div id="use-cases"><HowItWorks /></div>
+        
+                <div id="diagnostics"><DashboardShowcase /></div>
+                <div id="savings"><SavingsCalculator /></div>
+                <CallbackWidget />
+                <Footer />
+        
+              </div>
             </div>
-          </div>
+          )}
         </>
       } />
     </Routes>
