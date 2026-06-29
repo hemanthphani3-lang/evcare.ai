@@ -3,6 +3,7 @@ import { Menu, X, Cpu, Activity, ShieldAlert, Battery, Smartphone, Laptop, Calen
 import './MobileUX.css';
 
 // Importing assets
+import heroImg from './assets/header.png';
 import img1 from './assets/11.png';
 import img2 from './assets/22.png';
 import img3 from './assets/33.png';
@@ -84,14 +85,11 @@ const MobileUX = () => {
 
       {/* 2. Hero Section */}
       <section id="hero" className="m-hero-section">
-        <div className="m-hero-glow"></div>
+        <img src={heroImg} alt="EVcare.AI Background" className="m-hero-bg-img" />
+        <div className="m-hero-overlay"></div>
         <div className="m-hero-content">
           <span className="m-hero-tag">AI-POWERED EV INTELLIGENCE</span>
           <h1 className="m-hero-title">EVCARE.AI</h1>
-          
-          <div className="m-hero-img-wrap">
-            <img src="/device.png" alt="EVcare InnoVibe device" className="m-hero-device" />
-          </div>
 
           <p className="m-hero-desc">
             Advanced diagnostics and real-time battery insights for electric vehicles. Smarter decisions for the future of electric mobility.
