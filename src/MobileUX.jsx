@@ -334,6 +334,11 @@ const MobileUX = () => {
 
       {/* 5. Services Section (Horizontal Slider Carousel) */}
       <section id="use-cases" className="m-usecases-section" ref={useCasesRef}>
+        <div className="m-section-header">
+          <h2>How EVcare.ai Works</h2>
+          <div className="m-header-bar"></div>
+        </div>
+
         <div className="m-usecases-slider-container">
           <div 
             className="m-usecases-slides-wrapper"
