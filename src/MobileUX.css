@@ -369,23 +369,41 @@
   margin: 0;
 }
 
-/* 5. Stacked Use Cases */
+/* 5. Services Section - Slider */
 .m-usecases-section {
-  padding: 2rem 1.25rem;
+  padding: 3rem 0;
   background-color: #02050c;
+  overflow: hidden;
+}
+
+.m-usecases-slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.m-usecases-slides-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  width: 500%; /* 5 slides */
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.m-usecases-slide {
+  width: 20%; /* 1/5 of the total wrapper */
+  flex-shrink: 0;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
 }
 
 .m-usecase-card {
   position: relative;
   width: 100%;
-  background: rgba(10, 15, 30, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(10, 15, 30, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   padding: 1.5rem;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .m-usecase-num-bg {
@@ -419,6 +437,8 @@
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.65);
   margin-bottom: 1.25rem;
+  height: 48px;
+  overflow: hidden;
 }
 
 .m-usecase-img-wrap {
@@ -433,6 +453,32 @@
   height: auto;
   object-fit: cover;
   display: block;
+}
+
+/* Dots Indicator */
+.m-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.75rem;
+}
+
+.m-slider-dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.m-slider-dot.active {
+  background: #00e5ff;
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #00e5ff;
 }
 
 /* 6. Call To Action */

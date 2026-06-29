@@ -52,6 +52,15 @@ const LinkedInIcon = () => (
 
 const MobileUX = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+
+  // Auto-shift slider every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveStepIndex((prev) => (prev + 1) % 5);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   // DOM Refs for animations
   const heroRef = useRef(null);
@@ -98,24 +107,21 @@ const MobileUX = () => {
     ecoTl.fromTo('.m-eco-hub-card', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' })
          .fromTo('.m-grid-item', { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out' }, '-=0.4');
 
-    // 4. Use cases cards scroll animation
-    const useCaseCards = gsap.utils.toArray('.m-usecase-card');
-    useCaseCards.forEach((card) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          }
+    // 4. Use cases slider scroll animation
+    gsap.fromTo('.m-usecases-slider-container',
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: useCasesRef.current,
+          start: 'top 85%',
+          toggleActions: 'play none none none',
         }
-      );
-    });
+      }
+    );
 
     // 5. CTA card scroll animation
     gsap.fromTo('.m-cta-card',
@@ -326,20 +332,41 @@ const MobileUX = () => {
         </div>
       </section>
 
-      {/* 5. Services Section (Wipe step-by-step styling) */}
+      {/* 5. Services Section (Horizontal Slider Carousel) */}
       <section id="use-cases" className="m-usecases-section" ref={useCasesRef}>
-        {dashboardSteps.map((step) => (
-          <div key={step.id} className="m-usecase-card">
-            <div className="m-usecase-num-bg">{step.id}</div>
-            <div className="m-usecase-content">
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
-              <div className="m-usecase-img-wrap">
-                <img src={step.img} alt={step.title} className="m-usecase-img" />
+        <div className="m-usecases-slider-container">
+          <div 
+            className="m-usecases-slides-wrapper"
+            style={{ transform: `translateX(-${activeStepIndex * 100}%)` }}
+          >
+            {dashboardSteps.map((step) => (
+              <div key={step.id} className="m-usecases-slide">
+                <div className="m-usecase-card">
+                  <div className="m-usecase-num-bg">{step.id}</div>
+                  <div className="m-usecase-content">
+                    <h3>{step.title}</h3>
+                    <p>{step.desc}</p>
+                    <div className="m-usecase-img-wrap">
+                      <img src={step.img} alt={step.title} className="m-usecase-img" />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
+
+          {/* Dots Indicator */}
+          <div className="m-slider-dots">
+            {dashboardSteps.map((step, index) => (
+              <button
+                key={step.id}
+                className={`m-slider-dot ${index === activeStepIndex ? 'active' : ''}`}
+                onClick={() => setActiveStepIndex(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 6. Call To Action (Book Now / Invest Now) */}
