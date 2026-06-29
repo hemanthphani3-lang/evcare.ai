@@ -85,11 +85,14 @@ const MobileUX = () => {
 
       {/* 2. Hero Section */}
       <section id="hero" className="m-hero-section">
-        <img src={heroImg} alt="EVcare.AI Background" className="m-hero-bg-img" />
-        <div className="m-hero-overlay"></div>
+        <div className="m-hero-glow"></div>
         <div className="m-hero-content">
           <span className="m-hero-tag">AI-POWERED EV INTELLIGENCE</span>
           <h1 className="m-hero-title">EVCARE.AI</h1>
+
+          <div className="m-hero-card-wrap">
+            <img src={heroImg} alt="EVcare InnoVibe device" className="m-hero-card-img" />
+          </div>
 
           <p className="m-hero-desc">
             Advanced diagnostics and real-time battery insights for electric vehicles. Smarter decisions for the future of electric mobility.
