@@ -724,3 +724,35 @@
   text-transform: uppercase;
   margin: 0;
 }
+
+/* Ecosystem 'more details' button */
+.m-eco-more-details {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.m-more-details-btn {
+  background: transparent;
+  border: none;
+  color: #00e5ff;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 0.8rem 1.5rem;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  text-transform: lowercase;
+}
+
+.m-more-details-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+.m-more-details-btn:active .arrow {
+  transform: translateX(4px);
+}

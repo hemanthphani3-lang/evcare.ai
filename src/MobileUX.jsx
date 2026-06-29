@@ -337,6 +337,12 @@ const MobileUX = () => {
             <h5>FLEET DASHBOARD</h5>
           </div>
         </div>
+
+        <div className="m-eco-more-details">
+          <button onClick={() => handleScrollTo('use-cases')} className="m-more-details-btn">
+            more details <span className="arrow">→</span>
+          </button>
+        </div>
       </section>
 
       {/* 5. Services Section (Horizontal Slider Carousel) */}
