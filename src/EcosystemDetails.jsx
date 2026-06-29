@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Cpu, Cloud, Smartphone, Laptop, RefreshCw, 
   BrainCircuit, Bell, ShieldCheck, Wrench, Wifi, Phone 
 } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './EcosystemDetails.css';
 
 // Import local assets
@@ -12,11 +14,131 @@ import mobileImg from './assets/ecosystem/mobile.png';
 import watchImg from './assets/ecosystem/watch.png';
 import laptopImg from './assets/ecosystem/laptop.png';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const EcosystemDetails = () => {
   const navigate = useNavigate();
+  const containerRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const ctx = gsap.context(() => {
+      // 1. Hero Load Animations
+      const tl = gsap.timeline();
+      tl.fromTo('.ecd-section-label', 
+        { opacity: 0, y: 15 }, 
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+      )
+      .fromTo('.ecd-main-title', 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+        '-=0.4'
+      )
+      .fromTo('.ecd-main-subtitle', 
+        { opacity: 0, y: 15 }, 
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+        '-=0.45'
+      )
+      .fromTo('.ecd-infographic-card',
+        { opacity: 0, scale: 0.95, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+        '-=0.4'
+      );
+
+      // 2. Dual Cards ScrollTrigger
+      gsap.fromTo('.ecd-glass-card',
+        { opacity: 0, y: 40, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.ecd-dual-cards',
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // 3. Bullet Points ScrollTrigger
+      gsap.fromTo('.ecd-bullet-item',
+        { opacity: 0, x: -30 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          stagger: 0.18,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '.ecd-bullets-sec',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // 4. Showcase Card Panels (Slide In Panels)
+      const showcasePanels = gsap.utils.toArray('.ecd-showcase-section');
+      showcasePanels.forEach((panel) => {
+        // Fade & Slide up the card panel container
+        gsap.fromTo(panel.querySelector('.ecd-showcase-card'),
+          { opacity: 0, y: 50, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+
+        // Slide out/up the inner mockup image slightly slower for a parallax feel
+        gsap.fromTo(panel.querySelector('.ecd-showcase-img'),
+          { y: 60, opacity: 0, scale: 0.9 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top 75%',
+              toggleActions: 'play none none reverse'
+            }
+          }
+        );
+      });
+
+      // 5. Action Layer Grid Cards
+      gsap.fromTo('.ecd-action-card',
+        { opacity: 0, y: 30, scale: 0.9 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: 'back.out(1.2)',
+          scrollTrigger: {
+            trigger: '.ecd-action-layer',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   const triggerCallback = () => {
@@ -24,7 +146,7 @@ const EcosystemDetails = () => {
   };
 
   return (
-    <div className="ecd-page">
+    <div className="ecd-page" ref={containerRef}>
       {/* Background glow effects */}
       <div className="ecd-bg-glow ecd-glow-top"></div>
       <div className="ecd-bg-glow ecd-glow-middle"></div>
