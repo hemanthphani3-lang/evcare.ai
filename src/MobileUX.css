@@ -510,51 +510,167 @@
   opacity: 0.9;
 }
 
-/* 7. Footer */
-.m-footer {
-  padding: 3rem 1.25rem 2rem 1.25rem;
+/* 7. Fully Constructed Mobile Footer */
+.m-footer-modern {
   background-color: #02050b;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  text-align: center;
+  padding: 3.5rem 1.25rem 2rem 1.25rem;
+}
+
+.m-footer-content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.m-footer-col h4 {
+  font-family: 'Chillax', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.m-footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  width: 100%;
+}
+
+/* Brand Column */
+.m-footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.m-footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.m-footer-logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .m-footer-logo-text {
   font-family: 'Chillax', sans-serif;
   font-weight: 700;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   letter-spacing: 0.05em;
   color: #ffffff;
 }
 
 .m-footer-tagline {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.5);
-  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  text-align: left;
 }
 
 .m-footer-socials {
   display: flex;
-  justify-content: center;
   gap: 1.25rem;
-  margin-bottom: 2rem;
 }
 
 .m-footer-socials a {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
 }
 
 .m-footer-socials a:active {
   color: #00e5ff;
 }
 
-.m-footer-copy {
-  font-size: 0.68rem;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.3);
+/* Links Grid & Lists */
+.m-footer-links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.m-footer-links-grid button,
+.m-footer-links-grid a {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: inherit;
+  font-size: 0.92rem;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.m-footer-links-grid button:active,
+.m-footer-links-grid a:active {
+  color: #00e5ff;
+}
+
+/* Contact Column */
+.m-footer-contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.m-footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.m-contact-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
+}
+
+.m-contact-value-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #00e5ff;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.m-contact-addr {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Bottom Bar */
+.m-footer-bottom {
+  margin-top: 3.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1.5rem;
+}
+
+.m-footer-copy {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  margin: 0;
 }
