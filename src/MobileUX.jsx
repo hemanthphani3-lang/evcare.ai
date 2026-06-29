@@ -339,9 +339,9 @@ const MobileUX = () => {
         </div>
 
         <div className="m-eco-more-details">
-          <button onClick={() => handleScrollTo('use-cases')} className="m-more-details-btn">
+          <a href="/stitch_mobile_layout_converter (1)/" className="m-more-details-btn">
             more details <span className="arrow">→</span>
-          </button>
+          </a>
         </div>
       </section>
 

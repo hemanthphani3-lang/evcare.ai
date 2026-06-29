@@ -747,6 +747,7 @@
   transition: all 0.3s ease;
   font-family: 'Poppins', sans-serif;
   text-transform: lowercase;
+  text-decoration: none;
 }
 
 .m-more-details-btn .arrow {
