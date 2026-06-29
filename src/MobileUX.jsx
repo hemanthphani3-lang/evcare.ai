@@ -339,9 +339,9 @@ const MobileUX = () => {
         </div>
 
         <div className="m-eco-more-details">
-          <a href="/stitch_mobile_layout_converter (1)/" className="m-more-details-btn">
+          <Link to="/ecosystem-details" className="m-more-details-btn">
             more details <span className="arrow">→</span>
-          </a>
+          </Link>
         </div>
       </section>
 

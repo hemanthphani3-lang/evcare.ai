@@ -23,6 +23,7 @@ import RefundPolicy from './legal/RefundPolicy';
 import AIFeatures from './AIFeatures';
 import Ecosystem from './Ecosystem';
 import MobileUX from './MobileUX';
+import EcosystemDetails from './EcosystemDetails';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -95,6 +96,7 @@ function App() {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
       <Route path="/refund-policy" element={<RefundPolicy />} />
+      <Route path="/ecosystem-details" element={<EcosystemDetails />} />
       <Route path="/" element={
         <>
           {loading && <Preloader onComplete={() => setLoading(false)} />}
