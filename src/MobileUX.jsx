@@ -108,20 +108,20 @@ const MobileUX = () => {
          .fromTo('.m-grid-item', { opacity: 0, y: 20 }, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: 'power2.out' }, '-=0.4');
 
     // 4. Use cases slider scroll animation
-    gsap.fromTo('.m-usecases-slider-container',
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: useCasesRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        }
-      }
-    );
+    // gsap.fromTo('.m-usecases-slider-container',
+    //   { opacity: 0, y: 40 },
+    //   {
+    //     opacity: 1,
+    //     y: 0,
+    //     duration: 0.8,
+    //     ease: 'power2.out',
+    //     scrollTrigger: {
+    //       trigger: useCasesRef.current,
+    //       start: 'top 85%',
+    //       toggleActions: 'play none none none',
+    //     }
+    //   }
+    // );
 
     // 5. CTA card scroll animation
     gsap.fromTo('.m-cta-card',
