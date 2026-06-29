@@ -279,9 +279,35 @@
   margin: 0;
 }
 
-/* Showcase sections (Mobile, Watch, Laptop) */
-.ecd-showcase-section {
-  margin-bottom: 2.5rem;
+/* Showcase Slider Layout */
+.ecd-slider-section {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.ecd-slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 12px;
+}
+
+.ecd-slider-viewport {
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.ecd-slides-wrapper {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 300%;
+}
+
+.ecd-slide {
+  width: 33.333%;
+  flex-shrink: 0;
+  padding: 0 4px;
 }
 
 .ecd-showcase-card {
@@ -293,10 +319,13 @@
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
+  min-height: 480px;
+  height: 480px;
+  justify-content: space-between;
 }
 
 .ecd-showcase-text {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .ecd-showcase-text h2 {
@@ -370,22 +399,103 @@
 .ecd-showcase-img {
   width: 80%;
   max-width: 250px;
-  height: auto;
+  height: 180px;
   display: block;
   object-fit: contain;
 }
 
 /* Smartwatch-specific scale */
 .smartwatch-card {
-  padding-bottom: 2rem;
+  padding-bottom: 0;
 }
 
 .smartwatch-img-wrap {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .smartwatch-img-wrap .ecd-showcase-img {
   max-width: 180px;
+  height: 170px;
+}
+
+/* Navigation Chevrons */
+.ecd-slider-arrow {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.ecd-slider-arrow:hover {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.3);
+  color: #00e5ff;
+  transform: scale(1.05);
+}
+
+.ecd-slider-arrow:active {
+  transform: scale(0.95);
+}
+
+/* Dots Indicators */
+.ecd-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1.5rem;
+}
+
+.ecd-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.ecd-slider-dot.active {
+  background: #00e5ff;
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #00e5ff;
+}
+
+/* Responsive Overrides for slider overlay arrows */
+@media (max-width: 560px) {
+  .ecd-slider-container {
+    gap: 0;
+  }
+  .ecd-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    background: rgba(3, 7, 18, 0.75);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .ecd-slider-arrow.prev {
+    left: 8px;
+  }
+  .ecd-slider-arrow.next {
+    right: 8px;
+  }
+  .ecd-slider-arrow:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
 }
 
 /* Action Layer Section */

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Cpu, Cloud, Smartphone, Laptop, RefreshCw, 
-  BrainCircuit, Bell, ShieldCheck, Wrench, Wifi, Phone 
+  BrainCircuit, Bell, ShieldCheck, Wrench, Wifi, Phone,
+  ChevronLeft, ChevronRight
 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -19,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger);
 const EcosystemDetails = () => {
   const navigate = useNavigate();
   const containerRef = useRef(null);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -81,43 +83,22 @@ const EcosystemDetails = () => {
         }
       );
 
-      // 4. Showcase Card Panels (Slide In Panels)
-      const showcasePanels = gsap.utils.toArray('.ecd-showcase-section');
-      showcasePanels.forEach((panel) => {
-        // Fade & Slide up the card panel container
-        gsap.fromTo(panel.querySelector('.ecd-showcase-card'),
-          { opacity: 0, y: 50, scale: 0.96 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.85,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: panel,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse'
-            }
+      // 4. Showcase Card Slider Section (Slide In viewport)
+      gsap.fromTo('.ecd-slider-section',
+        { opacity: 0, y: 50, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.85,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.ecd-slider-section',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
           }
-        );
-
-        // Slide out/up the inner mockup image slightly slower for a parallax feel
-        gsap.fromTo(panel.querySelector('.ecd-showcase-img'),
-          { y: 60, opacity: 0, scale: 0.9 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: panel,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse'
-            }
-          }
-        );
-      });
+        }
+      );
 
       // 5. Action Layer Grid Cards
       gsap.fromTo('.ecd-action-card',
@@ -140,6 +121,22 @@ const EcosystemDetails = () => {
 
     return () => ctx.revert();
   }, []);
+
+  // Auto-shift slider loop every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveCardIndex((prev) => (prev + 1) % 3);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [activeCardIndex]);
+
+  const handlePrevCard = () => {
+    setActiveCardIndex((prev) => (prev === 0 ? 2 : prev - 1));
+  };
+
+  const handleNextCard = () => {
+    setActiveCardIndex((prev) => (prev === 2 ? 0 : prev + 1));
+  };
 
   const triggerCallback = () => {
     window.dispatchEvent(new CustomEvent('open-callback-form', { detail: { type: 'Call Back Request' } }));
@@ -239,56 +236,91 @@ const EcosystemDetails = () => {
           </div>
         </section>
 
-        {/* Mobile App Section */}
-        <section className="ecd-showcase-section">
-          <div className="ecd-showcase-card">
-            <div className="ecd-showcase-text">
-              <h2>MOBILE APP</h2>
-              <ul className="ecd-showcase-list">
-                <li><span></span> Vehicle Health</li>
-                <li><span></span> Ride Insights</li>
-                <li><span></span> Remote Ignition</li>
-                <li><span></span> Theft Alerts</li>
-              </ul>
-            </div>
-            <div className="ecd-showcase-image-wrap">
-              <img src={mobileImg} alt="Mobile App Screen" className="ecd-showcase-img" />
-            </div>
-          </div>
-        </section>
+        {/* Showcase Slider Section */}
+        <section className="ecd-slider-section">
+          <div className="ecd-slider-container">
+            {/* Left Chevron Arrow */}
+            <button className="ecd-slider-arrow prev" onClick={handlePrevCard} aria-label="Previous card">
+              <ChevronLeft size={24} />
+            </button>
 
-        {/* Smartwatch Section */}
-        <section className="ecd-showcase-section">
-          <div className="ecd-showcase-card smartwatch-card">
-            <div className="ecd-showcase-text">
-              <h2>SMARTWATCH</h2>
-              <ul className="ecd-showcase-list">
-                <li><span></span> Real-Time Alerts</li>
-                <li><span></span> Vehicle Status</li>
-                <li><span></span> Battery Health</li>
-              </ul>
-            </div>
-            <div className="ecd-showcase-image-wrap smartwatch-img-wrap">
-              <img src={watchImg} alt="Smartwatch Screen" className="ecd-showcase-img" />
-            </div>
-          </div>
-        </section>
+            {/* Viewport wrapper */}
+            <div className="ecd-slider-viewport">
+              <div 
+                className="ecd-slides-wrapper"
+                style={{ transform: `translateX(-${activeCardIndex * 100}%)` }}
+              >
+                {/* Slide 1: Mobile App */}
+                <div className="ecd-slide">
+                  <div className="ecd-showcase-card">
+                    <div className="ecd-showcase-text">
+                      <h2>MOBILE APP</h2>
+                      <ul className="ecd-showcase-list">
+                        <li><span></span> Vehicle Health</li>
+                        <li><span></span> Ride Insights</li>
+                        <li><span></span> Remote Ignition</li>
+                        <li><span></span> Theft Alerts</li>
+                      </ul>
+                    </div>
+                    <div className="ecd-showcase-image-wrap">
+                      <img src={mobileImg} alt="Mobile App Screen" className="ecd-showcase-img" />
+                    </div>
+                  </div>
+                </div>
 
-        {/* Fleet Dashboard Section */}
-        <section className="ecd-showcase-section">
-          <div className="ecd-showcase-card dashboard-card">
-            <div className="ecd-showcase-text">
-              <h2>FLEET DASHBOARD</h2>
-              <ul className="ecd-showcase-list-grid">
-                <li><span></span> Real-Time Tracking</li>
-                <li><span></span> Alerts & Diagnostics</li>
-                <li><span></span> Fleet Analytics</li>
-                <li><span></span> Maintenance Mgmt.</li>
-              </ul>
+                {/* Slide 2: Smartwatch */}
+                <div className="ecd-slide">
+                  <div className="ecd-showcase-card smartwatch-card">
+                    <div className="ecd-showcase-text">
+                      <h2>SMARTWATCH</h2>
+                      <ul className="ecd-showcase-list">
+                        <li><span></span> Real-Time Alerts</li>
+                        <li><span></span> Vehicle Status</li>
+                        <li><span></span> Battery Health</li>
+                      </ul>
+                    </div>
+                    <div className="ecd-showcase-image-wrap smartwatch-img-wrap">
+                      <img src={watchImg} alt="Smartwatch Screen" className="ecd-showcase-img" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Slide 3: Fleet Dashboard */}
+                <div className="ecd-slide">
+                  <div className="ecd-showcase-card dashboard-card">
+                    <div className="ecd-showcase-text">
+                      <h2>FLEET DASHBOARD</h2>
+                      <ul className="ecd-showcase-list-grid">
+                        <li><span></span> Real-Time Tracking</li>
+                        <li><span></span> Alerts & Diagnostics</li>
+                        <li><span></span> Fleet Analytics</li>
+                        <li><span></span> Maintenance Mgmt.</li>
+                      </ul>
+                    </div>
+                    <div className="ecd-showcase-image-wrap">
+                      <img src={laptopImg} alt="Fleet Dashboard Screen" className="ecd-showcase-img" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="ecd-showcase-image-wrap">
-              <img src={laptopImg} alt="Fleet Dashboard Screen" className="ecd-showcase-img" />
-            </div>
+
+            {/* Right Chevron Arrow */}
+            <button className="ecd-slider-arrow next" onClick={handleNextCard} aria-label="Next card">
+              <ChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Dots Indicator */}
+          <div className="ecd-slider-dots">
+            {[0, 1, 2].map((idx) => (
+              <button
+                key={idx}
+                className={`ecd-slider-dot ${idx === activeCardIndex ? 'active' : ''}`}
+                onClick={() => setActiveCardIndex(idx)}
+                aria-label={`Go to card ${idx + 1}`}
+              />
+            ))}
           </div>
         </section>
 
