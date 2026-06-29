@@ -48,7 +48,7 @@ const Footer = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle');
 
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzejqXCqcNrHCZ_z2ToV_PO1JqPMC0pF53MhoNkWT8JnD8tM4z47WM_u5i_bVppGfm-/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxGTJf3R74_6N21f_RhihHhzrJougKK12bUEKccQdF18iCJ-tCnt8KimORlyppzhqFY/exec';
 
   const handleSubscribe = async (e) => {
     e.preventDefault();

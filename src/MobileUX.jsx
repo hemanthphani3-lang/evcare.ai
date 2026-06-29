@@ -17,7 +17,7 @@ import img3 from './assets/33.png';
 import img4 from './assets/44.png';
 import img5 from './assets/55.png';
 
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdpbLecO53gLgP_Q-c0yv19yC7t019yC_placeholder/viewform";
+
 
 /* SVG Social Icons */
 const InstagramIcon = () => (
@@ -223,9 +223,16 @@ const MobileUX = () => {
           <button onClick={() => handleScrollTo('ecosystem')}>Ecosystem</button>
           <button onClick={() => handleScrollTo('use-cases')}>Use Cases</button>
           <button onClick={() => handleScrollTo('cta')}>Get Started</button>
-          <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" className="mobile-drawer-cta">
+          <button 
+            onClick={() => {
+              setMenuOpen(false);
+              window.dispatchEvent(new CustomEvent('open-callback-form', { detail: { type: 'Book Now Request' } }));
+            }} 
+            className="mobile-drawer-cta"
+            style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+          >
             Book Demo
-          </a>
+          </button>
         </nav>
       </div>
 
@@ -383,14 +390,22 @@ const MobileUX = () => {
           </p>
 
           <div className="m-cta-buttons">
-            <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" className="m-cta-btn m-btn-book">
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-callback-form', { detail: { type: 'Book Now Request' } }))} 
+              className="m-cta-btn m-btn-book"
+              style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+            >
               <Calendar size={18} />
               BOOK NOW
-            </a>
-            <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer" className="m-cta-btn m-btn-invest">
+            </button>
+            <button 
+              onClick={() => window.dispatchEvent(new CustomEvent('open-callback-form', { detail: { type: 'Invest Now Request' } }))} 
+              className="m-cta-btn m-btn-invest"
+              style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+            >
               <TrendingUp size={18} />
               INVEST NOW
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -426,7 +441,12 @@ const MobileUX = () => {
               <button onClick={() => handleScrollTo('features')}>Benefits</button>
               <button onClick={() => handleScrollTo('ecosystem')}>Ecosystem</button>
               <button onClick={() => handleScrollTo('use-cases')}>Use Cases</button>
-              <a href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer">Book Now</a>
+              <button 
+                onClick={() => window.dispatchEvent(new CustomEvent('open-callback-form', { detail: { type: 'Book Now Request' } }))}
+                style={{ background: 'none', border: 'none', color: 'inherit', padding: 0, font: 'inherit', textAlign: 'left', cursor: 'pointer' }}
+              >
+                Book Now
+              </button>
             </div>
           </div>
 
