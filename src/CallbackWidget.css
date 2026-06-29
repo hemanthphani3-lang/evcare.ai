@@ -223,4 +223,38 @@
     width: calc(100vw - 40px);
     padding: 2rem;
   }
+  
+  /* Shared desktop form responsive overrides */
+  .ev-input-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .ev-modal-cards {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .ev-modal-card {
+    width: 100%;
+    max-width: 320px;
+    min-height: auto;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  }
+  .ev-modal-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.1;
+  }
+  .ev-budget-grid, .ev-budget-grid-5 {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .ev-modal-close {
+    right: 0px;
+    top: -45px;
+  }
+  .ev-form-container {
+    padding: 1.8rem 1.2rem;
+  }
 }
