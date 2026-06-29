@@ -337,7 +337,7 @@ const MobileUX = () => {
         <div className="m-usecases-slider-container">
           <div 
             className="m-usecases-slides-wrapper"
-            style={{ transform: `translateX(-${activeStepIndex * 100}%)` }}
+            style={{ transform: `translateX(-${activeStepIndex * 20}%)` }}
           >
             {dashboardSteps.map((step) => (
               <div key={step.id} className="m-usecases-slide">
