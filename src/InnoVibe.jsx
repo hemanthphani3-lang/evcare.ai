@@ -24,7 +24,10 @@ const InnoVibe = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    let mm = gsap.matchMedia();
+
+    // Desktop Viewport Layout and ScrollTrigger Sequence
+    mm.add("(min-width: 769px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -61,9 +64,72 @@ const InnoVibe = () => {
         { y: 0, opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" },
         "<0.2" // slight delay
       );
-    }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    // Mobile Viewport Layout and ScrollTrigger Sequence
+    mm.add("(max-width: 768px)", () => {
+      gsap.fromTo('.innovibe-slide-image',
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '.innovibe-slide-image',
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      gsap.fromTo('.innovibe-left-col',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '.innovibe-left-col',
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      gsap.fromTo('.innovibe-right-col',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '.innovibe-right-col',
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+
+      gsap.fromTo('.innovibe-bottom-specs',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: '.innovibe-bottom-specs',
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
 
   const rightItems = [

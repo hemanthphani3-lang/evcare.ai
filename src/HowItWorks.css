@@ -53,12 +53,17 @@
 
 @media (max-width: 992px) {
   .hiw-title {
-    font-size: 4rem;
+    font-size: 3.5rem;
+    white-space: normal;
+    padding: 0 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
   .hiw-title {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    white-space: normal;
+    padding: 0 1rem;
+    line-height: 1.3;
   }
 }

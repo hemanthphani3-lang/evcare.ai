@@ -116,10 +116,10 @@ const AIFeatures = () => {
           {/* Icon text labels */}
           <div className="ai-icon-labels" ref={labelsRef}>
           {[
-            { title: 'PREDICTIVE\nINTELLIGENCE',  desc: 'AI that detects issues before they happen.' },
-            { title: 'REAL-TIME\nPROTECTION',     desc: 'Continuous monitoring that safeguards your EV.' },
-            { title: 'SMART FLEET\nVISIBILITY',   desc: 'Complete visibility across vehicles and operations.' },
-            { title: 'INSTANT\nAI ALERTS',         desc: 'Critical alerts, delivered in real time.' },
+            { title: 'PREDICTIVE \nINTELLIGENCE',  desc: 'AI that detects issues before they happen.' },
+            { title: 'REAL-TIME \nPROTECTION',     desc: 'Continuous monitoring that safeguards your EV.' },
+            { title: 'SMART FLEET \nVISIBILITY',   desc: 'Complete visibility across vehicles and operations.' },
+            { title: 'INSTANT \nAI ALERTS',         desc: 'Critical alerts, delivered in real time.' },
           ].map(({ title, desc }, idx) => (
             <div key={idx} className="ai-icon-label-col">
               <div className="ai-icon-text-content">

@@ -10,36 +10,39 @@ const HowItWorks = () => {
   const wipeRef = useRef(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Scanning wipe reveal effect
-      gsap.to(wipeRef.current, {
-        width: "100%",
-        duration: 2.2,
-        ease: "power2.inOut",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-          onComplete: () => {
-            if (wipeRef.current) wipeRef.current.style.borderRight = "none";
-            if (!window.hasAutoScrolledHIW) {
-              window.hasAutoScrolledHIW = true;
-              setTimeout(() => {
-                const nextSection = document.querySelector('.dashboard-showcase');
-                if (nextSection) {
-                  nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }, 1200);
-            }
+    let mm = gsap.matchMedia();
+
+    // 1. Scanning wipe reveal (unified on scrollTrigger)
+    gsap.to(wipeRef.current, {
+      width: "100%",
+      duration: 2.2,
+      ease: "power2.inOut",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        onComplete: () => {
+          if (wipeRef.current) wipeRef.current.style.borderRight = "none";
+          if (!window.hasAutoScrolledHIW) {
+            window.hasAutoScrolledHIW = true;
+            setTimeout(() => {
+              const nextSection = document.querySelector('.dashboard-showcase');
+              if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }, 1200);
           }
         }
-      });
+      }
+    });
 
+    // 2. Responsive Pinning & Exit Transition
+    mm.add("(min-width: 769px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=50%", 
+          end: "+=50%",
           pin: true,
           pinSpacing: false,
           scrub: 1,
@@ -48,9 +51,23 @@ const HowItWorks = () => {
 
       tl.to(wipeRef.current, { scale: 1.5, opacity: 0, duration: 1 }, 0)
         .to(containerRef.current, { opacity: 0, duration: 1 }, 0);
-    }, containerRef);
+    });
 
-    return () => ctx.revert();
+    mm.add("(max-width: 768px)", () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        }
+      });
+
+      tl.to(wipeRef.current, { scale: 1.2, opacity: 0, duration: 1 }, 0)
+        .to(containerRef.current, { opacity: 0, duration: 1 }, 0);
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
