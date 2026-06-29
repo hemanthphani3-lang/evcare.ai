@@ -3,7 +3,6 @@ import { Menu, X, Cpu, Activity, ShieldAlert, Battery, Smartphone, Laptop, Calen
 import './MobileUX.css';
 
 // Importing assets
-import logobgn from './assets/logobgn.png';
 import img1 from './assets/11.png';
 import img2 from './assets/22.png';
 import img3 from './assets/33.png';
@@ -91,7 +90,7 @@ const MobileUX = () => {
           <h1 className="m-hero-title">EVCARE.AI</h1>
           
           <div className="m-hero-img-wrap">
-            <img src={logobgn} alt="EVcare InnoVibe device on pedestal" className="m-hero-device" />
+            <img src="/device.png" alt="EVcare InnoVibe device" className="m-hero-device" />
           </div>
 
           <p className="m-hero-desc">
@@ -162,7 +161,7 @@ const MobileUX = () => {
         </div>
 
         <div className="m-eco-hub-card">
-          <img src={logobgn} alt="The intelligence unit" className="m-eco-hub-img" />
+          <img src="/device.png" alt="The intelligence unit" className="m-eco-hub-img" />
           <span className="m-eco-hub-label">THE INTELLIGENCE UNIT</span>
         </div>
 
