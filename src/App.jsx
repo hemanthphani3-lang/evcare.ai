@@ -141,12 +141,12 @@ function App() {
         
                 <div id="diagnostics"><DashboardShowcase /></div>
                 <div id="savings"><SavingsCalculator /></div>
-                <CallbackWidget />
                 <Footer />
         
               </div>
             </div>
           )}
+          <CallbackWidget />
         </>
       } />
     </Routes>
