@@ -388,3 +388,105 @@
   50% { transform: translate(5%, -12%) scale(1.2); opacity: 0.8; }
   100% { transform: translate(-15%, 5%) scale(0.9); opacity: 0.3; }
 }
+
+/* ─── RESPONSIVE MOBILE LAYOUT OVERRIDES ───────────────── */
+@media (max-width: 768px) {
+  .section {
+    min-height: auto;
+    padding: 4rem 1.25rem;
+  }
+
+  .section.hero-main {
+    height: 100vh;
+    min-height: 100vh;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    padding: 2rem 1.25rem 4rem 1.25rem;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+    pointer-events: auto;
+    z-index: 10;
+  }
+
+  .hero-top-left {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: auto; /* Push it to the top */
+    padding-top: 4.5rem; /* Space below header */
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-align: center;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .hero-bottom-left {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+    transform: none !important;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 0 0.25rem;
+  }
+
+  .hero-description br {
+    display: none; /* Wrap naturally on mobile viewports */
+  }
+
+  .hero-explore-btn {
+    justify-content: center;
+    width: 100%;
+    max-width: 260px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    background: #38bdf8;
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    font-size: 0.95rem;
+    margin: 0 auto;
+  }
+
+  .hero-explore-btn:hover {
+    background: #10b981;
+    color: #000000;
+    transform: scale(1.02);
+  }
+
+  .hero-explore-btn .arrow-line {
+    display: none; /* Hide long line arrow on mobile */
+  }
+}

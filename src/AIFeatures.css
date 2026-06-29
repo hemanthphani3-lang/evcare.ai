@@ -327,19 +327,17 @@
     width: 100%;
     height: auto;
     margin-top: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: block;
   }
 
-  .ai-image-top, .ai-image-bottom {
+  .ai-image-top {
     position: relative;
     width: 100%;
     height: auto;
-    overflow: hidden;
+    overflow: visible;
   }
 
-  .ai-features-img-top, .ai-features-img-bottom {
+  .ai-features-img-top {
     position: relative;
     width: 100%;
     height: auto;
@@ -348,7 +346,7 @@
   }
 
   .ai-image-bottom {
-    margin-top: -1px; /* seamless join */
+    display: none;
   }
 
   .ai-icon-labels {
